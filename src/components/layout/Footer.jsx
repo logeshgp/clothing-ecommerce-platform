@@ -4,6 +4,9 @@ import { useStore } from '../../context/StoreContext';
 export function Footer() {
   const { settings, categories } = useStore();
   const [first, ...rest] = (settings.storeName ?? 'DND Store').split(' ');
+  const visibility = settings.visibility ?? {};
+
+  if (visibility.footer === false) return null;
 
   return (
     <footer className="mt-24 border-t border-sand-200 bg-sand-50">
@@ -13,8 +16,12 @@ export function Footer() {
           <p className="text-xs text-ink-500">Send a purchase enquiry to the seller on WhatsApp.</p>
         </div>
         <div>
-          <p className="text-sm font-semibold">Wholesale orders welcome</p>
-          <p className="text-xs text-ink-500">Ask the seller about quantity pricing and availability.</p>
+          {visibility.bulkOrder !== false && (
+            <>
+              <p className="text-sm font-semibold">Wholesale orders welcome</p>
+              <p className="text-xs text-ink-500">Ask the seller about quantity pricing and availability.</p>
+            </>
+          )}
         </div>
         <div>
           <p className="text-sm font-semibold">Clear order confirmation</p>
@@ -44,12 +51,12 @@ export function Footer() {
               {category.name}
             </FooterLink>
           ))}
-          <FooterLink to="/collections">Collections</FooterLink>
+          {visibility.collections !== false && <FooterLink to="/collections">Collections</FooterLink>}
         </FooterColumn>
 
         <FooterColumn title="Explore">
-          <FooterLink to="/collections">Collections</FooterLink>
-          <FooterLink to="/bulk-order">Wholesale enquiries</FooterLink>
+          {visibility.collections !== false && <FooterLink to="/collections">Collections</FooterLink>}
+          {visibility.bulkOrder !== false && <FooterLink to="/bulk-order">Wholesale enquiries</FooterLink>}
           <FooterLink to="/wishlist">Wishlist</FooterLink>
           <FooterLink to="/cart">Bag</FooterLink>
         </FooterColumn>

@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { COLLECTIONS_BY_SLUG } from '../data/collections';
+import { Navigate, useParams } from 'react-router-dom';
 import { useStore } from '../context/StoreContext';
 import { ProductCard } from '../components/product/ProductCard';
 import { QuickViewModal } from '../components/product/QuickViewModal';
@@ -11,15 +10,17 @@ import { assetUrl } from '../api/client';
 
 export default function CollectionDetail() {
   const { slug } = useParams();
-  const { productsById } = useStore();
+  const { productsById, settings, collections } = useStore();
   const [quickView, setQuickView] = useState(null);
 
-  const collection = COLLECTIONS_BY_SLUG[slug];
+  const collection = collections.find((item) => item.slug === slug);
 
   const products = useMemo(
     () => (collection?.productIds ?? []).map((id) => productsById[id]).filter(Boolean),
     [collection, productsById],
   );
+
+  if (settings.visibility?.collections === false) return <Navigate to="/" replace />;
 
   if (!collection) {
     return (

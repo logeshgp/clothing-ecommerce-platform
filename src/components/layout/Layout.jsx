@@ -42,10 +42,10 @@ export function Layout() {
 
       <Header />
 
-      {demoMode && import.meta.env.VITE_GITHUB_ONLY === 'false' && (
+      {demoMode && (
         <p role="status" className="bg-sand-200 px-4 py-2 text-center text-xs text-ink-700">
-          Preview catalog is shown. Connect the store API or publish configuration changes through
-          the GitHub-managed admin page before accepting live enquiries.
+          Preview catalogue is shown because saved store data could not be loaded. Check the
+          published JSON or API and retry before relying on the storefront.
         </p>
       )}
 

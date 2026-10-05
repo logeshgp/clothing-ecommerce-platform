@@ -10,6 +10,7 @@ export function MobileNav({ open, onClose }) {
   const wishlist = useWishlist();
   const { categories, settings } = useStore();
   const location = useLocation();
+  const visibility = settings.visibility ?? {};
 
   // Close the menu whenever navigation happens.
   useEffect(() => {
@@ -37,9 +38,9 @@ export function MobileNav({ open, onClose }) {
           <li>
             <MobileLink to="/shop">All pieces</MobileLink>
           </li>
-          <li>
+          {visibility.newArrivals !== false && <li>
             <MobileLink to="/shop?category=new">New arrivals</MobileLink>
-          </li>
+          </li>}
           {categories.map((category) => (
             <li key={category.slug}>
               <MobileLink to={`/shop/${category.slug}`}>{category.name}</MobileLink>
@@ -49,12 +50,12 @@ export function MobileNav({ open, onClose }) {
 
         <p className="dnd-eyebrow mb-3 mt-8">Discover</p>
         <ul className="space-y-1">
-          <li>
+          {visibility.collections !== false && <li>
             <MobileLink to="/collections">Collections</MobileLink>
-          </li>
-          <li>
+          </li>}
+          {visibility.bulkOrder !== false && <li>
             <MobileLink to="/bulk-order">Wholesale orders</MobileLink>
-          </li>
+          </li>}
           <li>
             <MobileLink to="/wishlist">Wishlist ({wishlist.count})</MobileLink>
           </li>

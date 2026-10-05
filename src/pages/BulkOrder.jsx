@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useStore } from '../context/StoreContext';
 import { useToast } from '../context/ToastContext';
 import { isPhone, isRequired } from '../utils/validation';
@@ -56,6 +56,8 @@ export default function BulkOrder() {
     openWhatsAppMessage(selectedRecipient.number, lines.join('\n'));
     notify('Review the WhatsApp draft and tap Send to share your enquiry.', { tone: 'success' });
   }
+
+  if (settings.visibility?.bulkOrder === false) return <Navigate to="/" replace />;
 
   return (
     <main className="dnd-container py-12 sm:py-16">
