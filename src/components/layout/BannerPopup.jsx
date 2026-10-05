@@ -15,18 +15,19 @@ const SESSION_KEY = 'dnd.banner.dismissed';
 export function BannerPopup() {
   const { settings, assetUrl } = useStore();
   const banner = settings.banner ?? {};
+  const visible = settings.visibility?.promotionalBanner !== false;
 
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (!banner.enabled || !banner.title) return undefined;
+    if (!visible || !banner.enabled || !banner.title) return undefined;
 
     const key = `${SESSION_KEY}.${banner.title}`;
     if (banner.showOncePerSession && sessionStorage.getItem(key)) return undefined;
 
     const timer = setTimeout(() => setOpen(true), Number(banner.delayMs) || 1200);
     return () => clearTimeout(timer);
-  }, [banner.enabled, banner.title, banner.delayMs, banner.showOncePerSession]);
+  }, [visible, banner.enabled, banner.title, banner.delayMs, banner.showOncePerSession]);
 
   function dismiss() {
     setOpen(false);

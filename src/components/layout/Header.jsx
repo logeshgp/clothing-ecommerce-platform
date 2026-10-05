@@ -19,6 +19,7 @@ export function Header() {
   const wishlist = useWishlist();
   const { activeAnnouncements, categories, settings } = useStore();
   const navigate = useNavigate();
+  const visibility = settings.visibility ?? {};
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -53,7 +54,7 @@ export function Header() {
 
   return (
     <>
-      {announcement && (
+      {visibility.announcements !== false && announcement && (
         <div className="bg-ink-900 px-4 py-2.5 text-center text-[11px] font-medium tracking-[0.08em] text-sand-100">
           <span key={announcement.id} className="inline-block animate-fade-up">
             {announcement.text}
@@ -87,20 +88,20 @@ export function Header() {
           </div>
 
           <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
-            <NavLink to="/shop?category=new" className={navLinkClass}>
+            {visibility.newArrivals !== false && <NavLink to="/shop?category=new" className={navLinkClass}>
               New
-            </NavLink>
+            </NavLink>}
             {categories.map((category) => (
               <NavLink key={category.slug} to={`/shop/${category.slug}`} className={navLinkClass}>
                 {category.name}
               </NavLink>
             ))}
-            <NavLink to="/collections" className={navLinkClass}>
+            {visibility.collections !== false && <NavLink to="/collections" className={navLinkClass}>
               Collections
-            </NavLink>
-            <NavLink to="/bulk-order" className={navLinkClass}>
+            </NavLink>}
+            {visibility.bulkOrder !== false && <NavLink to="/bulk-order" className={navLinkClass}>
               Bulk orders
-            </NavLink>
+            </NavLink>}
           </nav>
 
           <div className="flex items-center gap-0.5">

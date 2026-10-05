@@ -185,7 +185,7 @@ export default function Checkout() {
             </form>
           </section>
 
-          {settings.bulkDiscount?.active && (
+          {settings.bulkDiscount?.active && settings.visibility?.bulkOrder !== false && (
             <aside className="rounded-2xl border border-moss-500/30 bg-moss-500/10 p-5">
               <p className="font-semibold text-moss-500">Wholesale orders welcome</p>
               <p className="mt-1 text-sm text-ink-700">

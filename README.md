@@ -1,14 +1,14 @@
 # Clothing ecommerce platform
 
-A responsive React storefront for pants, trousers, 3/4 pants and track pants. The default GitHub Pages setup includes a GitHub-managed admin page and does not require a third-party API or hosting provider.
+A responsive React storefront for pants, trousers, 3/4 pants and track pants. The default GitHub Pages setup includes a no-login admin editor and does not require a third-party API or hosting provider.
 
 ## What is included
 
 - Product browsing, search, categories, sizing, cart and wishlist.
 - WhatsApp purchase enquiries: customers review and send a pre-filled draft; this website does not collect payment or claim an order is placed.
 - A separate wholesale enquiry page and configurable quantity discount.
-- A GitHub-managed admin page at `/console/` with links to edit products, store settings, WhatsApp contacts, promotions, announcements and categories through GitHub.
-- Product photos committed to `public/uploads/` and served by GitHub Pages.
+- An admin editor at `/console/` for products, storefront visibility, prices, promotions, announcements, wholesale settings and WhatsApp contacts.
+- Product photos committed to `public/images/` and served by GitHub Pages; published store data is in `public/store-data.json`.
 - Privacy notice and terms templates. The seller must complete accurate business details and review disclosures before launch.
 
 Indian legal requirements depend on the seller, products, sales model and actual data practices. Have the final terms, privacy notice, tax treatment, product pricing and grievance disclosures reviewed by a qualified professional before accepting enquiries.
@@ -39,7 +39,7 @@ For optional local API development, copy `.env.example` to `.env`, set a unique 
 
 ## Deploy to GitHub Pages
 
-The repository includes [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml). It builds the storefront and GitHub-managed admin page and deploys both as static files on every push to `main`. The storefront reads products and settings from the committed source files; no API URL or third-party runtime is needed.
+The repository includes [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml). It builds the storefront and admin page and deploys both as static files on every push to `main`. The storefront reads the committed `public/store-data.json` when present, and otherwise starts with the bundled sample catalogue. No API URL or third-party runtime is needed.
 
 1. Push the project files to the `main` branch of `logeshgp/clothing-ecommerce-platform`.
 2. In GitHub, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**.
@@ -48,22 +48,18 @@ The repository includes [`.github/workflows/deploy-pages.yml`](./.github/workflo
 
 No `VITE_API_URL`, backend service or external hosting account is needed for this mode.
 
-## Manage the store through GitHub
+## Manage the store and upload photos
 
-1. Open the admin page and sign in to GitHub in the same browser.
-2. Choose **Edit on GitHub** for products, store settings, promotions or categories. Only repository collaborators with write access can save changes.
-3. Edit the source file. GitHub lets you commit directly to `main` or create a pull request for review.
-4. For photos, choose **Upload photos on GitHub**, select authorised JPEG, PNG, WebP or AVIF files, and commit them into `public/uploads/`. Update the relevant image field in the product or settings file to `/uploads/filename.webp`.
-5. A successful commit to `main` automatically triggers the Pages workflow. Check **Actions** and wait for it to finish before checking the site.
+The `/console/` admin page itself does not require a login. It keeps edits in the current browser and can export a `store-data.json` file. GitHub Pages cannot write to your repository anonymously, so publishing is done through GitHub's normal upload and commit screens:
 
-Store data is in:
+1. Open `https://logeshgp.github.io/clothing-ecommerce-platform/console/`.
+2. Use **Products**, **Storefront** and **Offers & messages** to edit products, prices, stock, visibility flags, home hero, banner, announcements, promotions, wholesale settings, seller details and WhatsApp contacts. Drafts stay in this browser; download the JSON before switching browsers or clearing site data.
+3. To select a photo, choose **Choose photo** beside a product, hero, banner or collection. The editor previews it and adds a generated `/images/...` path to the draft. Make a copy of the photo on your device with the suggested filename, then choose **Upload photo on GitHub** and select that renamed copy.
+4. In GitHub's upload screen, commit each photo to `public/images/`. The image path is already added to the draft; the file itself must be uploaded and committed by you.
+5. In the admin page's **Publish** tab, choose **Download store data**. Upload it as `public/store-data.json` the first time. For later changes, open the existing file on GitHub, replace its contents with the downloaded JSON, and commit. Use a GitHub account with write permission to this repository; you can commit to `main` or create a pull request.
+6. If photos and data are uploaded in separate commits, wait for the deployment triggered by the last commit. In **Actions**, confirm that the Pages workflow completed before checking the storefront.
 
-- `src/data/products.js` — product details, prices, colour images and stock.
-- `src/data/settings.js` — store identity, WhatsApp contacts, home page, banner and announcements.
-- `src/data/promoCodes.js` — promo codes.
-- `src/data/taxonomy.js` — categories, sizes and shared product options.
-
-These are JavaScript source files rather than a form-based database. GitHub Pages is static hosting: storefront and admin files are public, while GitHub account/repository permissions protect editing. Do not put passwords, customer details or private secrets in the repository. This GitHub-only mode has no separate website admin password, runtime database or direct photo-upload widget.
+Opening the admin page does not require signing in. A GitHub account with repository write permission is still required on GitHub's own commit screen; no credential is embedded in the website. Changes become shared only after the files are committed and Pages redeploys. The initial sample catalogue remains as a fallback until the first `store-data.json` is committed.
 
 ## Optional API mode
 
@@ -82,7 +78,7 @@ npm run preview         # preview storefront production bundle
 
 ## Important operational notes
 
-- In GitHub-only mode, edits are source changes committed to the repository; there is no runtime database or private admin backend.
+- In GitHub-only mode, the browser draft is local until exported and committed to the repository; there is no runtime database or private admin backend.
 - Customers prepare a WhatsApp draft, review its recipient and contents, and press Send. This website cannot claim that a message was sent or an order accepted.
 - Never commit `.env`, production secrets, customer information, database files or private customer/business data.
 - Replace sample product photos and descriptions with assets and claims that the business is authorised to publish.

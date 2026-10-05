@@ -1,0 +1,2681 @@
+{
+  "products": [
+    {
+      "id": "p-001",
+      "name": "Everyday Cotton Chino",
+      "category": "pants",
+      "gender": "unisex",
+      "price": 1299,
+      "compareAt": 1699,
+      "fit": "relaxed",
+      "fabric": "Combed cotton",
+      "tags": [
+        "sale"
+      ],
+      "blurb": "A dependable straight-leg cotton chino with a comfortable mid rise.",
+      "released": "2026-07-02",
+      "sold": 3180,
+      "rating": 4.7,
+      "reviews": 512,
+      "colors": [
+        {
+          "name": "Bone",
+          "image": "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Ink",
+          "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Olive",
+          "image": "https://images.unsplash.com/photo-1604176354204-9268737828e4?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Bone::XS": 26,
+        "Bone::S": 2,
+        "Bone::M": 46,
+        "Bone::L": 37,
+        "Bone::XL": 32,
+        "Bone::XXL": 48,
+        "Ink::XS": 42,
+        "Ink::S": 34,
+        "Ink::M": 22,
+        "Ink::L": 2,
+        "Ink::XL": 21,
+        "Ink::XXL": 0,
+        "Olive::XS": 43,
+        "Olive::S": 47,
+        "Olive::M": 39,
+        "Olive::L": 49,
+        "Olive::XL": 2,
+        "Olive::XXL": 41
+      },
+      "slug": "p-001-everyday-cotton-chino",
+      "care": [
+        "Machine wash cold with like colours",
+        "Tumble dry low",
+        "Warm iron if needed"
+      ],
+      "details": [
+        "Combed cotton — relaxed fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      }
+    },
+    {
+      "id": "p-002",
+      "name": "Core Everyday Pant",
+      "category": "pants",
+      "gender": "men",
+      "price": 999,
+      "fit": "regular",
+      "fabric": "Organic cotton",
+      "tags": [],
+      "blurb": "An easy daily-wear pant with a clean profile and practical pockets.",
+      "released": "2026-06-18",
+      "sold": 4120,
+      "rating": 4.6,
+      "reviews": 684,
+      "colors": [
+        {
+          "name": "Ivory",
+          "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Navy",
+          "image": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Charcoal",
+          "image": "https://images.unsplash.com/photo-1593030103066-0093718efeb9?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Ivory::XS": 40,
+        "Ivory::S": 15,
+        "Ivory::M": 27,
+        "Ivory::L": 19,
+        "Ivory::XL": 44,
+        "Ivory::XXL": 41,
+        "Navy::XS": 1,
+        "Navy::S": 28,
+        "Navy::M": 34,
+        "Navy::L": 44,
+        "Navy::XL": 50,
+        "Navy::XXL": 42,
+        "Charcoal::XS": 37,
+        "Charcoal::S": 2,
+        "Charcoal::M": 46,
+        "Charcoal::L": 37,
+        "Charcoal::XL": 0,
+        "Charcoal::XXL": 1
+      },
+      "slug": "p-002-core-everyday-pant",
+      "care": [
+        "Machine wash cold",
+        "Line dry in shade",
+        "Do not bleach"
+      ],
+      "details": [
+        "Organic cotton — regular fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    },
+    {
+      "id": "p-003",
+      "name": "Relaxed Drawstring Pant",
+      "category": "pants",
+      "gender": "unisex",
+      "price": 1499,
+      "fit": "relaxed",
+      "fabric": "Combed cotton",
+      "tags": [
+        "new"
+      ],
+      "blurb": "A relaxed drawstring waist and an easy tapered leg for off-duty days.",
+      "released": "2026-09-21",
+      "sold": 860,
+      "rating": 4.8,
+      "reviews": 134,
+      "colors": [
+        {
+          "name": "Sand",
+          "image": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Moss",
+          "image": "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Ink",
+          "image": "https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Sand::XS": 31,
+        "Sand::S": 1,
+        "Sand::M": 34,
+        "Sand::L": 25,
+        "Sand::XL": 39,
+        "Sand::XXL": 21,
+        "Moss::XS": 34,
+        "Moss::S": 26,
+        "Moss::M": 34,
+        "Moss::L": 26,
+        "Moss::XL": 2,
+        "Moss::XXL": 38,
+        "Ink::XS": 24,
+        "Ink::S": 25,
+        "Ink::M": 43,
+        "Ink::L": 35,
+        "Ink::XL": 45,
+        "Ink::XXL": 20
+      },
+      "slug": "p-003-relaxed-drawstring-pant",
+      "care": [
+        "Machine wash cold with like colours",
+        "Tumble dry low",
+        "Warm iron if needed"
+      ],
+      "details": [
+        "Combed cotton — relaxed fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    },
+    {
+      "id": "p-004",
+      "name": "Utility Cargo Pant",
+      "category": "pants",
+      "gender": "unisex",
+      "price": 1199,
+      "fit": "regular",
+      "fabric": "Organic cotton",
+      "tags": [],
+      "blurb": "A durable cotton cargo with low-profile pockets and a roomy fit.",
+      "released": "2026-05-30",
+      "sold": 1540,
+      "rating": 4.5,
+      "reviews": 221,
+      "colors": [
+        {
+          "name": "Oat",
+          "image": "https://images.unsplash.com/photo-1517445312882-bc9910d016b7?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Rust",
+          "image": "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Slate",
+          "image": "https://images.unsplash.com/photo-1551803091-e20673f15770?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Oat::XS": 15,
+        "Oat::S": 35,
+        "Oat::M": 1,
+        "Oat::L": 22,
+        "Oat::XL": 2,
+        "Oat::XXL": 29,
+        "Rust::XS": 18,
+        "Rust::S": 41,
+        "Rust::M": 40,
+        "Rust::L": 0,
+        "Rust::XL": 47,
+        "Rust::XXL": 29,
+        "Slate::XS": 26,
+        "Slate::S": 46,
+        "Slate::M": 36,
+        "Slate::L": 27,
+        "Slate::XL": 51,
+        "Slate::XXL": 23
+      },
+      "slug": "p-004-utility-cargo-pant",
+      "care": [
+        "Machine wash cold",
+        "Line dry in shade",
+        "Do not bleach"
+      ],
+      "details": [
+        "Organic cotton — regular fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    },
+    {
+      "id": "p-005",
+      "name": "Active Stretch Pant",
+      "category": "pants",
+      "gender": "men",
+      "price": 1599,
+      "compareAt": 1999,
+      "fit": "slim",
+      "fabric": "Performance mesh",
+      "tags": [
+        "sale"
+      ],
+      "blurb": "Light stretch fabric and a flexible waist made for active days.",
+      "released": "2026-08-14",
+      "sold": 1180,
+      "rating": 4.6,
+      "reviews": 173,
+      "colors": [
+        {
+          "name": "Ink",
+          "image": "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Indigo",
+          "image": "https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Ink::XS": 2,
+        "Ink::S": 35,
+        "Ink::M": 18,
+        "Ink::L": 0,
+        "Ink::XL": 20,
+        "Ink::XXL": 30,
+        "Indigo::XS": 27,
+        "Indigo::S": 26,
+        "Indigo::M": 33,
+        "Indigo::L": 24,
+        "Indigo::XL": 29,
+        "Indigo::XXL": 22
+      },
+      "slug": "p-005-active-stretch-pant",
+      "care": [
+        "Machine wash cold",
+        "Do not use fabric softener",
+        "Hang dry"
+      ],
+      "details": [
+        "Performance mesh — slim fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      }
+    },
+    {
+      "id": "p-006",
+      "name": "Linen Drawstring Pant",
+      "category": "pants",
+      "gender": "women",
+      "price": 1099,
+      "fit": "relaxed",
+      "fabric": "Tencel™ lyocell",
+      "tags": [
+        "new"
+      ],
+      "blurb": "A breathable linen blend with a drawcord waist for warm weather.",
+      "released": "2026-09-12",
+      "sold": 740,
+      "rating": 4.5,
+      "reviews": 96,
+      "colors": [
+        {
+          "name": "Ecru",
+          "image": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Plum",
+          "image": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Sage",
+          "image": "https://images.unsplash.com/photo-1565084888279-aca607ecce0c?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Ecru::XS": 41,
+        "Ecru::S": 40,
+        "Ecru::M": 18,
+        "Ecru::L": 0,
+        "Ecru::XL": 22,
+        "Ecru::XXL": 44,
+        "Plum::XS": 1,
+        "Plum::S": 42,
+        "Plum::M": 1,
+        "Plum::L": 23,
+        "Plum::XL": 2,
+        "Plum::XXL": 44,
+        "Sage::XS": 45,
+        "Sage::S": 47,
+        "Sage::M": 23,
+        "Sage::L": 33,
+        "Sage::XL": 45,
+        "Sage::XXL": 49
+      },
+      "slug": "p-006-linen-drawstring-pant",
+      "care": [
+        "Machine wash cold, gentle cycle",
+        "Hang dry",
+        "Cool iron on reverse"
+      ],
+      "details": [
+        "Tencel™ lyocell — relaxed fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    },
+    {
+      "id": "p-007",
+      "name": "Classic Straight Pant",
+      "category": "pants",
+      "gender": "unisex",
+      "price": 1399,
+      "fit": "regular",
+      "fabric": "Combed cotton",
+      "tags": [
+        "last-chance"
+      ],
+      "blurb": "A classic straight fit that pairs easily with everyday essentials.",
+      "released": "2026-03-28",
+      "sold": 980,
+      "rating": 4.4,
+      "reviews": 142,
+      "colors": [
+        {
+          "name": "Bone",
+          "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Navy",
+          "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Bone::XS": 36,
+        "Bone::S": 28,
+        "Bone::M": 0,
+        "Bone::L": 40,
+        "Bone::XL": 48,
+        "Bone::XXL": 2,
+        "Navy::XS": 35,
+        "Navy::S": 29,
+        "Navy::M": 2,
+        "Navy::L": 46,
+        "Navy::XL": 24,
+        "Navy::XXL": 29
+      },
+      "slug": "p-007-classic-straight-pant",
+      "care": [
+        "Machine wash cold with like colours",
+        "Tumble dry low",
+        "Warm iron if needed"
+      ],
+      "details": [
+        "Combed cotton — regular fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    },
+    {
+      "id": "p-008",
+      "name": "Studio Straight Trouser",
+      "category": "trousers",
+      "gender": "unisex",
+      "price": 2499,
+      "fit": "regular",
+      "fabric": "Stretch twill",
+      "tags": [],
+      "blurb": "A clean straight leg with a mid rise and just enough stretch.",
+      "released": "2026-04-11",
+      "sold": 2240,
+      "rating": 4.8,
+      "reviews": 389,
+      "colors": [
+        {
+          "name": "Charcoal",
+          "image": "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Sand",
+          "image": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Ink",
+          "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Charcoal::XS": 19,
+        "Charcoal::S": 17,
+        "Charcoal::M": 24,
+        "Charcoal::L": 2,
+        "Charcoal::XL": 0,
+        "Charcoal::XXL": 0,
+        "Sand::XS": 17,
+        "Sand::S": 33,
+        "Sand::M": 46,
+        "Sand::L": 2,
+        "Sand::XL": 21,
+        "Sand::XXL": 46,
+        "Ink::XS": 25,
+        "Ink::S": 21,
+        "Ink::M": 37,
+        "Ink::L": 48,
+        "Ink::XL": 25,
+        "Ink::XXL": 31
+      },
+      "slug": "p-008-studio-straight-trouser",
+      "care": [
+        "Machine wash cold, gentle cycle",
+        "Hang dry",
+        "Cool iron on reverse"
+      ],
+      "details": [
+        "Stretch twill — regular fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    },
+    {
+      "id": "p-009",
+      "name": "Drift Wide-Leg Trouser",
+      "category": "trousers",
+      "gender": "women",
+      "price": 2799,
+      "compareAt": 3299,
+      "fit": "relaxed",
+      "fabric": "Tencel™ lyocell",
+      "tags": [
+        "new",
+        "sale"
+      ],
+      "blurb": "A fluid wide leg that reads tailored but moves like pyjamas.",
+      "released": "2026-09-28",
+      "sold": 870,
+      "rating": 4.6,
+      "reviews": 141,
+      "colors": [
+        {
+          "name": "Bone",
+          "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Slate",
+          "image": "https://images.unsplash.com/photo-1583496661160-fb5886a13d74?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Cocoa",
+          "image": "https://images.unsplash.com/photo-1551803091-e20673f15770?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Bone::XS": 45,
+        "Bone::S": 28,
+        "Bone::M": 39,
+        "Bone::L": 30,
+        "Bone::XL": 18,
+        "Bone::XXL": 20,
+        "Slate::XS": 23,
+        "Slate::S": 18,
+        "Slate::M": 36,
+        "Slate::L": 47,
+        "Slate::XL": 46,
+        "Slate::XXL": 21,
+        "Cocoa::XS": 27,
+        "Cocoa::S": 38,
+        "Cocoa::M": 41,
+        "Cocoa::L": 0,
+        "Cocoa::XL": 0,
+        "Cocoa::XXL": 51
+      },
+      "slug": "p-009-drift-wide-leg-trouser",
+      "care": [
+        "Machine wash cold, gentle cycle",
+        "Hang dry",
+        "Cool iron on reverse"
+      ],
+      "details": [
+        "Tencel™ lyocell — relaxed fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      }
+    },
+    {
+      "id": "p-010",
+      "name": "Grove Cargo Trouser",
+      "category": "trousers",
+      "gender": "men",
+      "price": 2699,
+      "fit": "relaxed",
+      "fabric": "Organic cotton",
+      "tags": [
+        "new"
+      ],
+      "blurb": "A modern cargo with flat bellows pockets and a tapered leg.",
+      "released": "2026-09-08",
+      "sold": 580,
+      "rating": 4.5,
+      "reviews": 84,
+      "colors": [
+        {
+          "name": "Moss",
+          "image": "https://images.unsplash.com/photo-1517445312882-bc9910d016b7?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Sand",
+          "image": "https://images.unsplash.com/photo-1604176354204-9268737828e4?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Ink",
+          "image": "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Moss::XS": 20,
+        "Moss::S": 2,
+        "Moss::M": 24,
+        "Moss::L": 2,
+        "Moss::XL": 24,
+        "Moss::XXL": 45,
+        "Sand::XS": 24,
+        "Sand::S": 18,
+        "Sand::M": 46,
+        "Sand::L": 38,
+        "Sand::XL": 43,
+        "Sand::XXL": 42,
+        "Ink::XS": 1,
+        "Ink::S": 27,
+        "Ink::M": 34,
+        "Ink::L": 25,
+        "Ink::XL": 0,
+        "Ink::XXL": 49
+      },
+      "slug": "p-010-grove-cargo-trouser",
+      "care": [
+        "Machine wash cold",
+        "Line dry in shade",
+        "Do not bleach"
+      ],
+      "details": [
+        "Organic cotton — relaxed fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    },
+    {
+      "id": "p-011",
+      "name": "Alder Corduroy Trouser",
+      "category": "trousers",
+      "gender": "unisex",
+      "price": 2899,
+      "fit": "regular",
+      "fabric": "Organic cotton",
+      "tags": [],
+      "blurb": "8-wale corduroy with a straight leg and a slightly elevated rise.",
+      "released": "2026-08-18",
+      "sold": 730,
+      "rating": 4.6,
+      "reviews": 109,
+      "colors": [
+        {
+          "name": "Cocoa",
+          "image": "https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Olive",
+          "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Cocoa::XS": 0,
+        "Cocoa::S": 25,
+        "Cocoa::M": 25,
+        "Cocoa::L": 17,
+        "Cocoa::XL": 20,
+        "Cocoa::XXL": 26,
+        "Olive::XS": 27,
+        "Olive::S": 16,
+        "Olive::M": 1,
+        "Olive::L": 43,
+        "Olive::XL": 29,
+        "Olive::XXL": 21
+      },
+      "slug": "p-011-alder-corduroy-trouser",
+      "care": [
+        "Machine wash cold",
+        "Line dry in shade",
+        "Do not bleach"
+      ],
+      "details": [
+        "Organic cotton — regular fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    },
+    {
+      "id": "p-012",
+      "name": "Linen Easy Trouser",
+      "category": "trousers",
+      "gender": "unisex",
+      "price": 2299,
+      "fit": "relaxed",
+      "fabric": "Linen blend",
+      "tags": [],
+      "blurb": "Breathable linen blend with a drawcord waist for warm months.",
+      "released": "2026-05-18",
+      "sold": 1180,
+      "rating": 4.4,
+      "reviews": 204,
+      "colors": [
+        {
+          "name": "Ivory",
+          "image": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Clay",
+          "image": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Indigo",
+          "image": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Ivory::XS": 2,
+        "Ivory::S": 24,
+        "Ivory::M": 2,
+        "Ivory::L": 24,
+        "Ivory::XL": 39,
+        "Ivory::XXL": 28,
+        "Clay::XS": 0,
+        "Clay::S": 18,
+        "Clay::M": 44,
+        "Clay::L": 2,
+        "Clay::XL": 38,
+        "Clay::XXL": 51,
+        "Indigo::XS": 16,
+        "Indigo::S": 1,
+        "Indigo::M": 41,
+        "Indigo::L": 32,
+        "Indigo::XL": 41,
+        "Indigo::XXL": 35
+      },
+      "slug": "p-012-linen-easy-trouser",
+      "care": [
+        "Machine wash cold, gentle cycle",
+        "Line dry to limit creasing",
+        "Iron while damp"
+      ],
+      "details": [
+        "Linen blend — relaxed fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    },
+    {
+      "id": "p-013",
+      "name": "Tapered Work Trouser",
+      "category": "trousers",
+      "gender": "men",
+      "price": 2599,
+      "fit": "slim",
+      "fabric": "Stretch twill",
+      "tags": [],
+      "blurb": "A desk-to-dinner trouser with a clean taper and hidden stretch.",
+      "released": "2026-06-24",
+      "sold": 1620,
+      "rating": 4.7,
+      "reviews": 267,
+      "colors": [
+        {
+          "name": "Navy",
+          "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Charcoal",
+          "image": "https://images.unsplash.com/photo-1593030103066-0093718efeb9?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Navy::XS": 38,
+        "Navy::S": 26,
+        "Navy::M": 1,
+        "Navy::L": 22,
+        "Navy::XL": 29,
+        "Navy::XXL": 26,
+        "Charcoal::XS": 23,
+        "Charcoal::S": 32,
+        "Charcoal::M": 0,
+        "Charcoal::L": 42,
+        "Charcoal::XL": 44,
+        "Charcoal::XXL": 2
+      },
+      "slug": "p-013-tapered-work-trouser",
+      "care": [
+        "Machine wash cold, gentle cycle",
+        "Hang dry",
+        "Cool iron on reverse"
+      ],
+      "details": [
+        "Stretch twill — slim fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    },
+    {
+      "id": "p-014",
+      "name": "Loop Terry Track Pant",
+      "category": "track-pants",
+      "gender": "unisex",
+      "price": 1899,
+      "fit": "relaxed",
+      "fabric": "Cotton terry",
+      "tags": [],
+      "blurb": "A tapered terry track pant with a ribbed waist that stays put.",
+      "released": "2026-07-16",
+      "sold": 1760,
+      "rating": 4.7,
+      "reviews": 268,
+      "colors": [
+        {
+          "name": "Oat",
+          "image": "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Charcoal",
+          "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Sage",
+          "image": "https://images.unsplash.com/photo-1562183241-b937e95585b6?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Oat::XS": 0,
+        "Oat::S": 25,
+        "Oat::M": 43,
+        "Oat::L": 34,
+        "Oat::XL": 28,
+        "Oat::XXL": 40,
+        "Charcoal::XS": 2,
+        "Charcoal::S": 40,
+        "Charcoal::M": 46,
+        "Charcoal::L": 17,
+        "Charcoal::XL": 46,
+        "Charcoal::XXL": 44,
+        "Sage::XS": 35,
+        "Sage::S": 29,
+        "Sage::M": 2,
+        "Sage::L": 46,
+        "Sage::XL": 24,
+        "Sage::XXL": 2
+      },
+      "slug": "p-014-loop-terry-track-pant",
+      "care": [
+        "Machine wash cold inside out",
+        "Tumble dry low",
+        "Avoid high heat"
+      ],
+      "details": [
+        "Cotton terry — relaxed fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    },
+    {
+      "id": "p-015",
+      "name": "Ember Fleece Jogger",
+      "category": "track-pants",
+      "gender": "unisex",
+      "price": 2099,
+      "compareAt": 2599,
+      "fit": "regular",
+      "fabric": "Brushed fleece",
+      "tags": [
+        "sale"
+      ],
+      "blurb": "Heavyweight loopback, brushed inside, structured outside.",
+      "released": "2026-06-24",
+      "sold": 1980,
+      "rating": 4.8,
+      "reviews": 341,
+      "colors": [
+        {
+          "name": "Oat",
+          "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Ink",
+          "image": "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Rust",
+          "image": "https://images.unsplash.com/photo-1584865288642-42078afe6942?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Oat::XS": 40,
+        "Oat::S": 14,
+        "Oat::M": 21,
+        "Oat::L": 31,
+        "Oat::XL": 35,
+        "Oat::XXL": 2,
+        "Ink::XS": 16,
+        "Ink::S": 42,
+        "Ink::M": 24,
+        "Ink::L": 34,
+        "Ink::XL": 35,
+        "Ink::XXL": 33,
+        "Rust::XS": 19,
+        "Rust::S": 16,
+        "Rust::M": 34,
+        "Rust::L": 45,
+        "Rust::XL": 42,
+        "Rust::XXL": 29
+      },
+      "slug": "p-015-ember-fleece-jogger",
+      "care": [
+        "Machine wash cold inside out",
+        "Tumble dry low",
+        "Do not iron print"
+      ],
+      "details": [
+        "Brushed fleece — regular fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      }
+    },
+    {
+      "id": "p-016",
+      "name": "Side-Stripe Track Pant",
+      "category": "track-pants",
+      "gender": "men",
+      "price": 1799,
+      "fit": "slim",
+      "fabric": "Poly-cotton knit",
+      "tags": [
+        "new"
+      ],
+      "blurb": "A retro side stripe with zip cuffs and a flat, non-bulky waist.",
+      "released": "2026-09-18",
+      "sold": 640,
+      "rating": 4.5,
+      "reviews": 88,
+      "colors": [
+        {
+          "name": "Navy",
+          "image": "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Ink",
+          "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Navy::XS": 32,
+        "Navy::S": 29,
+        "Navy::M": 17,
+        "Navy::L": 48,
+        "Navy::XL": 0,
+        "Navy::XXL": 47,
+        "Ink::XS": 43,
+        "Ink::S": 47,
+        "Ink::M": 27,
+        "Ink::L": 18,
+        "Ink::XL": 2,
+        "Ink::XXL": 34
+      },
+      "slug": "p-016-side-stripe-track-pant",
+      "care": [
+        "Machine wash cold",
+        "Tumble dry low",
+        "Do not bleach"
+      ],
+      "details": [
+        "Poly-cotton knit — slim fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    },
+    {
+      "id": "p-017",
+      "name": "Active Training Pant",
+      "category": "track-pants",
+      "gender": "unisex",
+      "price": 2199,
+      "fit": "slim",
+      "fabric": "Performance mesh",
+      "tags": [],
+      "blurb": "Four-way stretch with zip pockets and reflective trims.",
+      "released": "2026-08-02",
+      "sold": 760,
+      "rating": 4.6,
+      "reviews": 132,
+      "colors": [
+        {
+          "name": "Ink",
+          "image": "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Slate",
+          "image": "https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Olive",
+          "image": "https://images.unsplash.com/photo-1565693413579-8a73ffa8de15?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Ink::XS": 30,
+        "Ink::S": 44,
+        "Ink::M": 35,
+        "Ink::L": 46,
+        "Ink::XL": 2,
+        "Ink::XXL": 30,
+        "Slate::XS": 2,
+        "Slate::S": 28,
+        "Slate::M": 39,
+        "Slate::L": 30,
+        "Slate::XL": 27,
+        "Slate::XXL": 0,
+        "Olive::XS": 19,
+        "Olive::S": 2,
+        "Olive::M": 35,
+        "Olive::L": 27,
+        "Olive::XL": 30,
+        "Olive::XXL": 51
+      },
+      "slug": "p-017-active-training-pant",
+      "care": [
+        "Machine wash cold",
+        "Do not use fabric softener",
+        "Hang dry"
+      ],
+      "details": [
+        "Performance mesh — slim fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    },
+    {
+      "id": "p-018",
+      "name": "Lounge Wide Track Pant",
+      "category": "track-pants",
+      "gender": "women",
+      "price": 1999,
+      "fit": "oversized",
+      "fabric": "Cotton terry",
+      "tags": [
+        "new"
+      ],
+      "blurb": "A wide, easy track pant with a high rise and deep pockets.",
+      "released": "2026-09-25",
+      "sold": 420,
+      "rating": 4.7,
+      "reviews": 61,
+      "colors": [
+        {
+          "name": "Stone",
+          "image": "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Plum",
+          "image": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Moss",
+          "image": "https://images.unsplash.com/photo-1612336307429-8a898d10e223?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Stone::XS": 13,
+        "Stone::S": 22,
+        "Stone::M": 31,
+        "Stone::L": 41,
+        "Stone::XL": 45,
+        "Stone::XXL": 0,
+        "Plum::XS": 15,
+        "Plum::S": 17,
+        "Plum::M": 2,
+        "Plum::L": 44,
+        "Plum::XL": 42,
+        "Plum::XXL": 44,
+        "Moss::XS": 0,
+        "Moss::S": 46,
+        "Moss::M": 42,
+        "Moss::L": 33,
+        "Moss::XL": 35,
+        "Moss::XXL": 22
+      },
+      "slug": "p-018-lounge-wide-track-pant",
+      "care": [
+        "Machine wash cold inside out",
+        "Tumble dry low",
+        "Avoid high heat"
+      ],
+      "details": [
+        "Cotton terry — oversized fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    },
+    {
+      "id": "p-019",
+      "name": "Basin Relaxed 3/4 Pant",
+      "category": "three-fourth",
+      "gender": "unisex",
+      "price": 1499,
+      "compareAt": 1899,
+      "fit": "relaxed",
+      "fabric": "Linen blend",
+      "tags": [
+        "sale",
+        "last-chance"
+      ],
+      "blurb": "A breathable linen-blend three-quarter with a drawcord waist.",
+      "released": "2026-04-02",
+      "sold": 1320,
+      "rating": 4.3,
+      "reviews": 167,
+      "colors": [
+        {
+          "name": "Ecru",
+          "image": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Sage",
+          "image": "https://images.unsplash.com/photo-1565084888279-aca607ecce0c?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Cocoa",
+          "image": "https://images.unsplash.com/photo-1560243563-062bfc001d68?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Ecru::XS": 34,
+        "Ecru::S": 32,
+        "Ecru::M": 36,
+        "Ecru::L": 28,
+        "Ecru::XL": 40,
+        "Ecru::XXL": 30,
+        "Sage::XS": 21,
+        "Sage::S": 27,
+        "Sage::M": 18,
+        "Sage::L": 29,
+        "Sage::XL": 46,
+        "Sage::XXL": 23,
+        "Cocoa::XS": 17,
+        "Cocoa::S": 40,
+        "Cocoa::M": 18,
+        "Cocoa::L": 50,
+        "Cocoa::XL": 49,
+        "Cocoa::XXL": 47
+      },
+      "slug": "p-019-basin-relaxed-3-4-pant",
+      "care": [
+        "Machine wash cold, gentle cycle",
+        "Line dry to limit creasing",
+        "Iron while damp"
+      ],
+      "details": [
+        "Linen blend — relaxed fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      }
+    },
+    {
+      "id": "p-020",
+      "name": "Terry Capri Jogger",
+      "category": "three-fourth",
+      "gender": "unisex",
+      "price": 1599,
+      "fit": "regular",
+      "fabric": "Cotton terry",
+      "tags": [],
+      "blurb": "Cropped terry jogger with ribbed hems that sit above the calf.",
+      "released": "2026-07-10",
+      "sold": 1450,
+      "rating": 4.6,
+      "reviews": 213,
+      "colors": [
+        {
+          "name": "Oat",
+          "image": "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Charcoal",
+          "image": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Oat::XS": 24,
+        "Oat::S": 37,
+        "Oat::M": 15,
+        "Oat::L": 26,
+        "Oat::XL": 47,
+        "Oat::XXL": 0,
+        "Charcoal::XS": 0,
+        "Charcoal::S": 2,
+        "Charcoal::M": 39,
+        "Charcoal::L": 31,
+        "Charcoal::XL": 27,
+        "Charcoal::XXL": 48
+      },
+      "slug": "p-020-terry-capri-jogger",
+      "care": [
+        "Machine wash cold inside out",
+        "Tumble dry low",
+        "Avoid high heat"
+      ],
+      "details": [
+        "Cotton terry — regular fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    },
+    {
+      "id": "p-021",
+      "name": "Court Training 3/4",
+      "category": "three-fourth",
+      "gender": "men",
+      "price": 1699,
+      "fit": "slim",
+      "fabric": "Performance mesh",
+      "tags": [
+        "new"
+      ],
+      "blurb": "Quick-dry three-quarter with mesh vents behind the knee.",
+      "released": "2026-09-15",
+      "sold": 390,
+      "rating": 4.5,
+      "reviews": 54,
+      "colors": [
+        {
+          "name": "Ink",
+          "image": "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Indigo",
+          "image": "https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Ink::XS": 17,
+        "Ink::S": 37,
+        "Ink::M": 1,
+        "Ink::L": 43,
+        "Ink::XL": 2,
+        "Ink::XXL": 34,
+        "Indigo::XS": 16,
+        "Indigo::S": 15,
+        "Indigo::M": 0,
+        "Indigo::L": 42,
+        "Indigo::XL": 43,
+        "Indigo::XXL": 40
+      },
+      "slug": "p-021-court-training-3-4",
+      "care": [
+        "Machine wash cold",
+        "Do not use fabric softener",
+        "Hang dry"
+      ],
+      "details": [
+        "Performance mesh — slim fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    },
+    {
+      "id": "p-022",
+      "name": "Easy Cotton 3/4 Pant",
+      "category": "three-fourth",
+      "gender": "women",
+      "price": 1399,
+      "fit": "relaxed",
+      "fabric": "Organic cotton",
+      "tags": [],
+      "blurb": "A soft everyday three-quarter with an elasticated back waist.",
+      "released": "2026-06-08",
+      "sold": 880,
+      "rating": 4.4,
+      "reviews": 118,
+      "colors": [
+        {
+          "name": "Bone",
+          "image": "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Clay",
+          "image": "https://images.unsplash.com/photo-1565084888279-aca607ecce0c?auto=format&fit=crop&w=900&q=72"
+        },
+        {
+          "name": "Slate",
+          "image": "https://images.unsplash.com/photo-1560243563-062bfc001d68?auto=format&fit=crop&w=900&q=72"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "stock": {
+        "Bone::XS": 29,
+        "Bone::S": 2,
+        "Bone::M": 23,
+        "Bone::L": 34,
+        "Bone::XL": 33,
+        "Bone::XXL": 47,
+        "Clay::XS": 0,
+        "Clay::S": 18,
+        "Clay::M": 2,
+        "Clay::L": 44,
+        "Clay::XL": 34,
+        "Clay::XXL": 21,
+        "Slate::XS": 46,
+        "Slate::S": 47,
+        "Slate::M": 37,
+        "Slate::L": 28,
+        "Slate::XL": 31,
+        "Slate::XXL": 41
+      },
+      "slug": "p-022-easy-cotton-3-4-pant",
+      "care": [
+        "Machine wash cold",
+        "Line dry in shade",
+        "Do not bleach"
+      ],
+      "details": [
+        "Organic cotton — relaxed fit",
+        "Designed in-house, made in limited runs",
+        "Check the size guide for garment measurements"
+      ],
+      "measurements": {
+        "XS": {
+          "chest": 36,
+          "waist": 28,
+          "hip": 36,
+          "length": 26,
+          "inseam": 27
+        },
+        "S": {
+          "chest": 38,
+          "waist": 30,
+          "hip": 38,
+          "length": 27,
+          "inseam": 28
+        },
+        "M": {
+          "chest": 40,
+          "waist": 32,
+          "hip": 40,
+          "length": 28,
+          "inseam": 29
+        },
+        "L": {
+          "chest": 42,
+          "waist": 34,
+          "hip": 42,
+          "length": 29,
+          "inseam": 30
+        },
+        "XL": {
+          "chest": 44,
+          "waist": 36,
+          "hip": 44,
+          "length": 30,
+          "inseam": 31
+        },
+        "XXL": {
+          "chest": 46,
+          "waist": 38,
+          "hip": 46,
+          "length": 31,
+          "inseam": 31.5
+        }
+      },
+      "compareAt": null
+    }
+  ],
+  "categories": [
+    {
+      "slug": "pants",
+      "name": "Pants",
+      "blurb": "Everyday pants made for comfortable movement."
+    },
+    {
+      "slug": "trousers",
+      "name": "Trousers",
+      "blurb": "Cut once, worn a thousand times."
+    },
+    {
+      "slug": "track-pants",
+      "name": "Track pants",
+      "blurb": "Built to move, comfortable enough to stay in."
+    },
+    {
+      "slug": "three-fourth",
+      "name": "3/4 pants",
+      "blurb": "Half-length, all-day. Made for warm months."
+    }
+  ],
+  "collections": [
+    {
+      "slug": "the-everyday-edit",
+      "title": "The Everyday Edit",
+      "issue": "026",
+      "tagline": "Wear your own rhythm.",
+      "description": "The pieces we reach for without thinking — easy forms, considered details, made for wherever the day goes.",
+      "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=75",
+      "productIds": [
+        "p-001",
+        "p-002",
+        "p-008",
+        "p-014",
+        "p-020"
+      ]
+    },
+    {
+      "slug": "move-well",
+      "title": "Move Well",
+      "issue": "027",
+      "tagline": "Built to move with you.",
+      "description": "Track pants, training three-quarters and activewear made for days on the move.",
+      "image": "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=1400&q=75",
+      "productIds": [
+        "p-017",
+        "p-021",
+        "p-005",
+        "p-016",
+        "p-015"
+      ]
+    },
+    {
+      "slug": "warm-month-staples",
+      "title": "Warm Month Staples",
+      "issue": "025",
+      "tagline": "Comfort for warmer days.",
+      "description": "Easy-to-wear styles for warmer weather and everyday plans.",
+      "image": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=1400&q=75",
+      "productIds": [
+        "p-012",
+        "p-019",
+        "p-022",
+        "p-006",
+        "p-004"
+      ]
+    },
+    {
+      "slug": "soft-structure",
+      "title": "Soft Structure",
+      "issue": "024",
+      "tagline": "Comfort for every day.",
+      "description": "Everyday styles in comfortable fits.",
+      "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1400&q=75",
+      "productIds": [
+        "p-009",
+        "p-018",
+        "p-003",
+        "p-011",
+        "p-013"
+      ]
+    }
+  ],
+  "brandValues": [
+    "Pants and trousers.",
+    "Everyday styles.",
+    "Find your fit.",
+    "Track pants and three-quarter pants.",
+    "Wholesale enquiries welcome."
+  ],
+  "storyBlocks": [
+    {
+      "title": "Everyday styles",
+      "body": "Browse pants, trousers, three-quarter pants and track pants in the collection."
+    },
+    {
+      "title": "Product details",
+      "body": "View available sizes, colours, prices and product details before sending an enquiry."
+    },
+    {
+      "title": "Made for everyday",
+      "body": "Explore pants, trousers, three-quarter styles and track pants for your daily rotation."
+    }
+  ],
+  "promos": [],
+  "announcements": [
+    {
+      "id": "a-1",
+      "text": "Everyday pants, trousers and track pants — made for movement.",
+      "active": true
+    },
+    {
+      "id": "a-2",
+      "text": "Wholesale orders welcome — message us for bulk pricing.",
+      "active": true
+    }
+  ],
+  "settings": {
+    "storeName": "DND Apparel",
+    "tagline": "Everyday pants, made to move with you.",
+    "supportEmail": "",
+    "sellerLegalName": "",
+    "businessAddress": "",
+    "gstin": "",
+    "grievanceOfficer": "",
+    "grievanceEmail": "",
+    "grievancePhone": "",
+    "currency": "INR",
+    "taxRate": 0.05,
+    "freeShippingThreshold": 1999,
+    "festiveOffer": {
+      "active": false,
+      "label": "",
+      "percent": 0,
+      "note": ""
+    },
+    "bulkDiscount": {
+      "active": true,
+      "minQuantity": 10,
+      "percent": 10,
+      "label": "Wholesale pricing"
+    },
+    "whatsapp": {
+      "enabled": false,
+      "contacts": []
+    },
+    "shippingMethods": [
+      {
+        "id": "standard",
+        "label": "Standard",
+        "detail": "4–6 business days",
+        "price": 79,
+        "freeOverThreshold": true
+      },
+      {
+        "id": "express",
+        "label": "Express",
+        "detail": "2–3 business days",
+        "price": 149,
+        "freeOverThreshold": false
+      },
+      {
+        "id": "overnight",
+        "label": "Overnight",
+        "detail": "Next business day",
+        "price": 299,
+        "freeOverThreshold": false
+      }
+    ],
+    "hero": {
+      "eyebrow": "Everyday clothing · Wholesale available",
+      "titleLine1": "Find your",
+      "titleLine2": "everyday fit.",
+      "bodyLine1": "Pants, trousers and track pants.",
+      "bodyLine2": "Comfort for wherever the day goes.",
+      "caption": "Shop direct. Ask us on WhatsApp.",
+      "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=75",
+      "ctaLabel": "Shop the collection",
+      "ctaTo": "/shop"
+    },
+    "banner": {
+      "enabled": false,
+      "title": "",
+      "body": "",
+      "ctaLabel": "Shop now",
+      "ctaTo": "/shop",
+      "image": ""
+    },
+    "visibility": {
+      "announcements": true,
+      "hero": true,
+      "brandValues": true,
+      "categories": true,
+      "featured": true,
+      "editorial": true,
+      "newArrivals": true,
+      "promotionalBanner": true,
+      "bulkOrder": true,
+      "collections": true,
+      "footer": true
+    },
+    "homeEditorial": {
+      "eyebrow": "Browse the collection",
+      "titleLine1": "Good clothes.",
+      "titleLine2": "Everyday fits.",
+      "body": "Browse pants, trousers, three-quarter pants and track pants. Select your options and send a purchase enquiry to the seller.",
+      "ctaLabel": "Meet your new uniform",
+      "ctaTo": "/shop",
+      "image": "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=1200&q=75"
+    },
+    "collectionsPage": {
+      "eyebrow": "Curated edits",
+      "title": "Collections, issue by issue.",
+      "description": "Each edit is a small group of pieces chosen to work together — a starting point rather than a rulebook."
+    },
+    "homeContent": {
+      "categoriesEyebrow": "Shop by category",
+      "categoriesTitle": "Find your starting point.",
+      "categoriesLink": "View all pieces",
+      "featuredEyebrow": "The DND edit",
+      "featuredTitleLine1": "Good things,",
+      "featuredTitleLine2": "in good company.",
+      "featuredBody": "Pieces to reach for, again and again — chosen by the people who made them.",
+      "featuredButton": "Explore all pieces",
+      "newArrivalsTitle": "Just landed",
+      "newArrivalsLink": "See all new arrivals",
+      "bulkEyebrow": "For shops, teams and resellers",
+      "bulkTitle": "Buying in quantity?",
+      "bulkBody": "Share the styles and quantities you need. The seller will confirm availability and a wholesale quote.",
+      "bulkButton": "Request wholesale pricing",
+      "collectionsEyebrow": "Curated edits",
+      "collectionsTitle": "Collections to browse."
+    }
+  }
+}

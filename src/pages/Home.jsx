@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useStore } from '../context/StoreContext';
 import { featuredScore } from '../api/mockApi';
 import { primaryImage } from '../data/products';
-import { BRAND_VALUES, COLLECTIONS, STORY_BLOCKS } from '../data/collections';
 import { ProductCard } from '../components/product/ProductCard';
 import { QuickViewModal } from '../components/product/QuickViewModal';
 import { Button } from '../components/ui/Button';
@@ -11,11 +10,14 @@ import { ArrowUpRightIcon } from '../components/ui/Icons';
 import { assetUrl } from '../api/client';
 
 export default function Home() {
-  const { products, categories, settings } = useStore();
+  const { products, categories, settings, brandValues, collections, storyBlocks } = useStore();
   const [quickView, setQuickView] = useState(null);
 
   const hero = settings.hero;
   const festive = settings.festiveOffer;
+  const visibility = settings.visibility ?? {};
+  const content = settings.homeContent ?? {};
+  const editorial = settings.homeEditorial ?? {};
 
   const featured = useMemo(
     () => [...products].sort((a, b) => featuredScore(b) - featuredScore(a)).slice(0, 8),
@@ -30,7 +32,7 @@ export default function Home() {
   return (
     <>
       {/* ---------------------------------------------------------- Hero */}
-      <section className="dnd-container pt-6 pb-16 lg:pt-10" aria-labelledby="hero-title">
+      {visibility.hero !== false && <section className="dnd-container pt-6 pb-16 lg:pt-10" aria-labelledby="hero-title">
         <div className="relative overflow-hidden rounded-3xl bg-sand-200">
           <div className="absolute inset-0">
             <img src={assetUrl(hero.image)} alt="" className="h-full w-full object-cover" />
@@ -68,14 +70,14 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* ------------------------------------------------- Values marquee */}
-      <section aria-label="Brand values" className="overflow-hidden border-y border-sand-200 py-4">
+      {visibility.brandValues !== false && <section aria-label="Brand values" className="overflow-hidden border-y border-sand-200 py-4">
         <div className="flex w-max dnd-marquee">
           {[0, 1].map((copy) => (
             <div key={copy} className="flex shrink-0 items-center" aria-hidden={copy === 1}>
-              {BRAND_VALUES.map((value) => (
+              {brandValues.map((value) => (
                 <span key={value} className="flex items-center">
                   <span className="px-6 text-sm font-medium text-ink-700">{value}</span>
                   <span className="text-clay-400">✳</span>
@@ -84,22 +86,22 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </section>}
 
       {/* ------------------------------------------------------ Categories */}
-      <section className="dnd-container py-16" aria-labelledby="categories-title">
+      {visibility.categories !== false && <section className="dnd-container py-16" aria-labelledby="categories-title">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="dnd-eyebrow">Shop by category</p>
+            <p className="dnd-eyebrow">{content.categoriesEyebrow ?? 'Shop by category'}</p>
             <h2 id="categories-title" className="mt-2 text-3xl font-bold sm:text-4xl">
-              Find your starting point.
+              {content.categoriesTitle ?? 'Find your starting point.'}
             </h2>
           </div>
           <Link
             to="/shop"
             className="inline-flex items-center gap-1.5 text-sm font-medium underline underline-offset-4"
           >
-            View all pieces <ArrowUpRightIcon className="h-4 w-4" />
+            {content.categoriesLink ?? 'View all pieces'} <ArrowUpRightIcon className="h-4 w-4" />
           </Link>
         </div>
 
@@ -114,7 +116,7 @@ export default function Home() {
               >
                 {sample && (
                   <img
-                    src={primaryImage(sample)}
+                    src={assetUrl(primaryImage(sample))}
                     alt=""
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -129,21 +131,21 @@ export default function Home() {
             );
           })}
         </div>
-      </section>
+      </section>}
 
       {/* -------------------------------------------------- Featured grid */}
-      <section className="dnd-container py-8" aria-labelledby="featured-title">
+      {visibility.featured !== false && <section className="dnd-container py-8" aria-labelledby="featured-title">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="dnd-eyebrow">The DND edit</p>
+            <p className="dnd-eyebrow">{content.featuredEyebrow ?? 'The DND edit'}</p>
             <h2 id="featured-title" className="mt-2 text-3xl font-bold leading-tight sm:text-5xl">
-              Good things,
+              {content.featuredTitleLine1 ?? 'Good things,'}
               <br />
-              in good company.
+              {content.featuredTitleLine2 ?? 'in good company.'}
             </h2>
           </div>
           <p className="max-w-xs text-sm text-ink-500">
-            Pieces to reach for, again and again — chosen by the people who made them.
+            {content.featuredBody ?? 'Pieces to reach for, again and again — chosen by the people who made them.'}
           </p>
         </div>
 
@@ -160,17 +162,17 @@ export default function Home() {
 
         <div className="mt-12 flex justify-center">
           <Button to="/shop" variant="outline" size="lg">
-            Explore all pieces ↓
+            {content.featuredButton ?? 'Explore all pieces'} ↓
           </Button>
         </div>
-      </section>
+      </section>}
 
       {/* ---------------------------------------------- Editorial banner */}
-      <section className="dnd-container py-16">
+      {visibility.editorial !== false && <section className="dnd-container py-16">
         <div className="grid overflow-hidden rounded-3xl bg-ink-900 text-sand-100 lg:grid-cols-2">
           <div className="min-h-72 bg-sand-200 lg:min-h-[32rem]">
             <img
-              src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=1200&q=75"
+              src={assetUrl(editorial.image)}
               alt="Everyday essentials laid out"
               loading="lazy"
               className="h-full w-full object-cover"
@@ -178,21 +180,20 @@ export default function Home() {
           </div>
           <div className="flex flex-col justify-center gap-5 p-8 sm:p-12 lg:p-16">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sand-400">
-              Browse the collection
+              {editorial.eyebrow ?? 'Browse the collection'}
             </p>
             <h2 className="text-3xl font-bold leading-tight sm:text-5xl">
-              Good clothes.
+              {editorial.titleLine1 ?? 'Good clothes.'}
               <br />
-              Everyday fits.
+              {editorial.titleLine2 ?? 'Everyday fits.'}
             </h2>
             <p className="max-w-md text-sm leading-relaxed text-sand-300">
-              Browse pants, trousers, three-quarter pants and track pants. Select your options and
-              send a purchase enquiry to the seller.
+              {editorial.body ?? 'Browse pants, trousers, three-quarter pants and track pants. Select your options and send a purchase enquiry to the seller.'}
             </p>
 
             <dl className="grid gap-5 pt-2 sm:grid-cols-3">
-              {STORY_BLOCKS.map((block) => (
-                <div key={block.title}>
+              {storyBlocks.map((block, index) => (
+                <div key={`${block.title}-${index}`}>
                   <dt className="text-sm font-semibold">{block.title}</dt>
                   <dd className="mt-1 text-xs leading-relaxed text-sand-400">{block.body}</dd>
                 </div>
@@ -200,25 +201,25 @@ export default function Home() {
             </dl>
 
             <Button
-              to={`/shop/${categories[1]?.slug ?? ''}`}
+              to={editorial.ctaTo || '/shop'}
               variant="light"
               size="lg"
               className="mt-2 self-start"
             >
-              Meet your new uniform <ArrowUpRightIcon className="h-4 w-4" />
+              {editorial.ctaLabel ?? 'Meet your new uniform'} <ArrowUpRightIcon className="h-4 w-4" />
             </Button>
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* ------------------------------------------------------ New in */}
-      <section className="dnd-container py-8" aria-labelledby="new-title">
+      {visibility.newArrivals !== false && <section className="dnd-container py-8" aria-labelledby="new-title">
         <div className="mb-8 flex items-end justify-between gap-4">
           <h2 id="new-title" className="text-2xl font-bold sm:text-3xl">
-            Just landed
+            {content.newArrivalsTitle ?? 'Just landed'}
           </h2>
           <Link to="/shop?sort=newest" className="text-sm font-medium underline underline-offset-4">
-            See all new arrivals
+            {content.newArrivalsLink ?? 'See all new arrivals'}
           </Link>
         </div>
         <div className="grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4">
@@ -226,36 +227,36 @@ export default function Home() {
             <ProductCard key={product.id} product={product} onQuickView={setQuickView} />
           ))}
         </div>
-      </section>
+      </section>}
 
-      <section className="dnd-container py-12" aria-labelledby="bulk-order-title">
+      {visibility.bulkOrder !== false && <section className="dnd-container py-12" aria-labelledby="bulk-order-title">
         <div className="flex flex-col items-start justify-between gap-6 border-y border-sand-300 py-8 sm:flex-row sm:items-center">
           <div>
-            <p className="dnd-eyebrow">For shops, teams and resellers</p>
+            <p className="dnd-eyebrow">{content.bulkEyebrow ?? 'For shops, teams and resellers'}</p>
             <h2 id="bulk-order-title" className="mt-2 text-2xl font-semibold sm:text-3xl">
-              Buying in quantity?
+              {content.bulkTitle ?? 'Buying in quantity?'}
             </h2>
             <p className="mt-2 max-w-xl text-sm text-ink-500">
-              Share the styles and quantities you need. The seller will confirm availability and a wholesale quote.
+              {content.bulkBody ?? 'Share the styles and quantities you need. The seller will confirm availability and a wholesale quote.'}
             </p>
           </div>
           <Button to="/bulk-order" size="lg" className="shrink-0">
-            Request wholesale pricing <ArrowUpRightIcon className="h-4 w-4" />
+            {content.bulkButton ?? 'Request wholesale pricing'} <ArrowUpRightIcon className="h-4 w-4" />
           </Button>
         </div>
-      </section>
+      </section>}
 
       {/* -------------------------------------------------- Collections */}
-      <section className="dnd-container py-16" aria-labelledby="collections-title">
+      {visibility.collections !== false && <section className="dnd-container py-16" aria-labelledby="collections-title">
         <div className="mb-8">
-          <p className="dnd-eyebrow">Curated edits</p>
+          <p className="dnd-eyebrow">{content.collectionsEyebrow ?? 'Curated edits'}</p>
           <h2 id="collections-title" className="mt-2 text-3xl font-bold sm:text-4xl">
-            Collections to browse.
+            {content.collectionsTitle ?? 'Collections to browse.'}
           </h2>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
-          {COLLECTIONS.slice(0, 2).map((collection) => (
+          {collections.slice(0, 2).map((collection) => (
             <Link
               key={collection.slug}
               to={`/collections/${collection.slug}`}
@@ -278,7 +279,7 @@ export default function Home() {
             </Link>
           ))}
         </div>
-      </section>
+      </section>}
 
       <QuickViewModal
         product={quickView}

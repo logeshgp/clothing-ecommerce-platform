@@ -1,29 +1,29 @@
-import { Link } from 'react-router-dom';
-import { COLLECTIONS } from '../data/collections';
+import { Link, Navigate } from 'react-router-dom';
+import { useStore } from '../context/StoreContext';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { ArrowUpRightIcon } from '../components/ui/Icons';
 import { assetUrl } from '../api/client';
 
 export default function Collections() {
+  const { settings, collections } = useStore();
+  const page = settings.collectionsPage ?? {};
+
+  if (settings.visibility?.collections === false) return <Navigate to="/" replace />;
+
   return (
     <div className="dnd-container py-10">
       <Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Collections' }]} />
 
       <header className="mt-6 max-w-2xl border-b border-sand-200 pb-10">
-        <p className="dnd-eyebrow">Curated edits</p>
+        <p className="dnd-eyebrow">{page.eyebrow ?? 'Curated edits'}</p>
         <h1 className="mt-2 text-4xl font-bold leading-tight sm:text-6xl">
-          Collections,
-          <br />
-          issue by issue.
+          {page.title ?? 'Collections, issue by issue.'}
         </h1>
-        <p className="mt-4 text-sm leading-relaxed text-ink-500">
-          Each edit is a small group of pieces chosen to work together — a starting point rather
-          than a rulebook.
-        </p>
+        <p className="mt-4 text-sm leading-relaxed text-ink-500">{page.description ?? 'Each edit is a small group of pieces chosen to work together — a starting point rather than a rulebook.'}</p>
       </header>
 
       <div className="mt-10 grid gap-5 md:grid-cols-2">
-        {COLLECTIONS.map((collection, index) => (
+        {collections.map((collection, index) => (
           <Link
             key={collection.slug}
             to={`/collections/${collection.slug}`}
