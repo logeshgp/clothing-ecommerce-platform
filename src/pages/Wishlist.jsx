@@ -7,6 +7,7 @@ import { useToast } from '../context/ToastContext';
 import { colorImage, colorNames, sizesInStock, stockFor } from '../data/products';
 import { CATEGORY_MAP } from '../data/taxonomy';
 import { formatPrice } from '../utils/format';
+import { assetUrl } from '../api/client';
 import { SizePicker } from '../components/product/SizePicker';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { Button } from '../components/ui/Button';
@@ -106,7 +107,7 @@ function WishlistRow({ product }) {
         className="h-48 w-36 shrink-0 overflow-hidden rounded-2xl bg-sand-200"
       >
         <img
-          src={colorImage(product, color)}
+          src={assetUrl(colorImage(product, color))}
           alt={`${product.name} in ${color}`}
           className="h-full w-full object-cover"
         />

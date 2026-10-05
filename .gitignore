@@ -6,6 +6,8 @@ dist-console
 dist-ssr
 server/data/
 uploads/
+!public/uploads/
+!public/uploads/.gitkeep
 *.local
 .DS_Store
 .env

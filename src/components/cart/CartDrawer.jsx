@@ -3,6 +3,7 @@ import { useCart } from '../../context/CartContext';
 import { useStore } from '../../context/StoreContext';
 import { stockFor } from '../../data/products';
 import { formatPrice } from '../../utils/format';
+import { assetUrl } from '../../api/client';
 import { Button, IconButton } from '../ui/Button';
 import { Drawer } from '../ui/Drawer';
 import { EmptyState } from '../ui/EmptyState';
@@ -53,7 +54,7 @@ export function CartDrawer() {
                     onClick={closeCart}
                     className="h-28 w-22 shrink-0 overflow-hidden rounded-xl bg-sand-200"
                   >
-                    <img src={line.image} alt={line.name} className="h-full w-full object-cover" />
+                    <img src={assetUrl(line.image)} alt={line.name} className="h-full w-full object-cover" />
                   </Link>
 
                   <div className="flex min-w-0 flex-1 flex-col gap-2">

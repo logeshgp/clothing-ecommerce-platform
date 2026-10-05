@@ -148,5 +148,9 @@ export const api = {
 export function assetUrl(url) {
   if (!url) return '';
   if (/^https?:\/\//i.test(url)) return url;
-  return `${API_BASE}${url.startsWith('/') ? '' : '/'}${url}`;
+  if (API_BASE) return `${API_BASE}${url.startsWith('/') ? '' : '/'}${url}`;
+  if (url.startsWith('/')) {
+    return `${import.meta.env.BASE_URL}${url.replace(/^\/+/, '')}`;
+  }
+  return url;
 }

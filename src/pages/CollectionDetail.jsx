@@ -7,6 +7,7 @@ import { QuickViewModal } from '../components/product/QuickViewModal';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { Button } from '../components/ui/Button';
 import { EmptyState } from '../components/ui/EmptyState';
+import { assetUrl } from '../api/client';
 
 export default function CollectionDetail() {
   const { slug } = useParams();
@@ -41,7 +42,7 @@ export default function CollectionDetail() {
       />
 
       <header className="relative mt-6 overflow-hidden rounded-3xl bg-sand-200">
-        <img src={collection.image} alt="" className="h-full w-full object-cover" />
+        <img src={assetUrl(collection.image)} alt="" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink-900/80 via-ink-900/30 to-transparent" />
         <div className="absolute inset-x-6 bottom-6 max-w-2xl space-y-3 text-sand-50 sm:inset-x-10 sm:bottom-10">
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sand-300">

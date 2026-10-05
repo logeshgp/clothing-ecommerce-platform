@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { formatDate, formatPrice } from '../../utils/format';
+import { assetUrl } from '../../api/client';
 import { Button } from '../../components/ui/Button';
 import { EmptyState } from '../../components/ui/EmptyState';
 import { ChevronRightIcon } from '../../components/ui/Icons';
@@ -35,7 +36,7 @@ export default function AccountOrders() {
                 {order.items.slice(0, 3).map((line) => (
                   <img
                     key={line.id}
-                    src={line.image}
+                    src={assetUrl(line.image)}
                     alt=""
                     className="h-16 w-13 rounded-lg border-2 border-sand-50 object-cover"
                   />
