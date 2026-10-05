@@ -5,6 +5,7 @@ import { useToast } from '../../context/ToastContext';
 import { colorImage, colorNames, isInStock } from '../../data/products';
 import { CATEGORY_MAP } from '../../data/taxonomy';
 import { classNames, formatPrice } from '../../utils/format';
+import { assetUrl } from '../../api/client';
 import { Badge } from '../ui/Badge';
 import { ColorSwatch } from '../ui/ColorSwatch';
 import { HeartIcon } from '../ui/Icons';
@@ -42,7 +43,7 @@ export function ProductCard({ product, onQuickView, priority = false, layout = '
       >
         <div className="relative aspect-[3/4] w-32 shrink-0 overflow-hidden rounded-xl bg-sand-200 sm:w-40">
           <img
-            src={image}
+            src={assetUrl(image)}
             alt={`${product.name} in ${activeColor}`}
             loading="lazy"
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -72,7 +73,7 @@ export function ProductCard({ product, onQuickView, priority = false, layout = '
       <Link to={`/product/${product.slug}`} className="block">
         <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-sand-200">
           <img
-            src={image}
+            src={assetUrl(image)}
             alt={`${product.name} in ${activeColor}`}
             loading={priority ? 'eager' : 'lazy'}
             className="h-full w-full object-cover transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover:scale-[1.04]"

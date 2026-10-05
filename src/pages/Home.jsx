@@ -8,6 +8,7 @@ import { ProductCard } from '../components/product/ProductCard';
 import { QuickViewModal } from '../components/product/QuickViewModal';
 import { Button } from '../components/ui/Button';
 import { ArrowUpRightIcon } from '../components/ui/Icons';
+import { assetUrl } from '../api/client';
 
 export default function Home() {
   const { products, categories, settings } = useStore();
@@ -32,7 +33,7 @@ export default function Home() {
       <section className="dnd-container pt-6 pb-16 lg:pt-10" aria-labelledby="hero-title">
         <div className="relative overflow-hidden rounded-3xl bg-sand-200">
           <div className="absolute inset-0">
-            <img src={hero.image} alt="" className="h-full w-full object-cover" />
+            <img src={assetUrl(hero.image)} alt="" className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink-900/75 via-ink-900/25 to-ink-900/10" />
           </div>
 
@@ -261,7 +262,7 @@ export default function Home() {
               className="group relative aspect-[16/10] overflow-hidden rounded-3xl bg-sand-200"
             >
               <img
-                src={collection.image}
+                src={assetUrl(collection.image)}
                 alt=""
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"

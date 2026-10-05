@@ -43,6 +43,20 @@ export function StoreProvider({ children }) {
 
   const load = useCallback(async () => {
     setStatus('loading');
+    if (import.meta.env.VITE_GITHUB_ONLY !== 'false') {
+      setState({
+        products: SEED_PRODUCTS,
+        categories: CATEGORIES,
+        promos: SEED_PROMOS,
+        announcements: SEED_ANNOUNCEMENTS,
+        settings: SEED_SETTINGS,
+        countries: [],
+      });
+      setStatus('ready');
+      setError(null);
+      return;
+    }
+
     try {
       const data = await api.storefront();
       setState({

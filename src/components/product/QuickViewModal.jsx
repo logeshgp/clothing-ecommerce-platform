@@ -5,6 +5,7 @@ import { useToast } from '../../context/ToastContext';
 import { colorImage, colorNames, sizesInStock, stockFor } from '../../data/products';
 import { CATEGORY_MAP } from '../../data/taxonomy';
 import { formatPrice } from '../../utils/format';
+import { assetUrl } from '../../api/client';
 import { Button } from '../ui/Button';
 import { Modal } from '../ui/Modal';
 import { ColorSwatchButton } from '../ui/ColorSwatch';
@@ -57,7 +58,7 @@ export function QuickViewModal({ product, open, onClose }) {
       <div className="grid gap-8 p-6 md:grid-cols-2">
         <div className="overflow-hidden rounded-2xl bg-sand-200">
           <img
-            src={colorImage(product, color)}
+            src={assetUrl(colorImage(product, color))}
             alt={`${product.name} in ${color}`}
             className="aspect-[4/5] w-full object-cover"
           />

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { colorNames } from '../../data/products';
+import { assetUrl } from '../../api/client';
 import { classNames } from '../../utils/format';
 import { ChevronLeftIcon, ChevronRightIcon } from '../ui/Icons';
 
@@ -45,7 +46,7 @@ export function ProductGallery({ product, activeColor, onColorChange }) {
                 i === index ? 'border-ink-900' : 'border-transparent opacity-65 hover:opacity-100',
               )}
             >
-              <img src={color.image} alt="" className="h-full w-full object-cover" />
+              <img src={assetUrl(color.image)} alt="" className="h-full w-full object-cover" />
             </button>
           ))}
         </div>
@@ -59,7 +60,7 @@ export function ProductGallery({ product, activeColor, onColorChange }) {
       >
         <div className="aspect-[4/5]">
           <img
-            src={current?.image}
+            src={assetUrl(current?.image)}
             alt={`${product.name} in ${current?.name}`}
             className="h-full w-full object-cover transition-transform duration-500 ease-[var(--ease-out-soft)]"
             style={{

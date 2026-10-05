@@ -36,12 +36,12 @@ jobs:
       - name: Build storefront
         run: npm run build
         env:
-          VITE_API_URL: ${{ vars.VITE_API_URL }}
+          VITE_GITHUB_ONLY: 'true'
 
       - name: Build admin console
         run: npm run build:console
         env:
-          VITE_API_URL: ${{ vars.VITE_API_URL }}
+          VITE_GITHUB_ONLY: 'true'
 
       - name: Assemble Pages artifact
         run: |

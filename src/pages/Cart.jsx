@@ -5,6 +5,7 @@ import { useWishlist } from '../context/WishlistContext';
 import { useToast } from '../context/ToastContext';
 import { stockFor } from '../data/products';
 import { formatPrice } from '../utils/format';
+import { assetUrl } from '../api/client';
 import { OrderSummary } from '../components/cart/OrderSummary';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { Button } from '../components/ui/Button';
@@ -65,7 +66,7 @@ export default function Cart() {
                     to={`/product/${line.slug}`}
                     className="h-40 w-32 shrink-0 overflow-hidden rounded-2xl bg-sand-200"
                   >
-                    <img src={line.image} alt={line.name} className="h-full w-full object-cover" />
+                    <img src={assetUrl(line.image)} alt={line.name} className="h-full w-full object-cover" />
                   </Link>
 
                   <div className="flex min-w-0 flex-1 flex-col gap-3">

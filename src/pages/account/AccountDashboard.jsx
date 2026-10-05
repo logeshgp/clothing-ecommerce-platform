@@ -5,6 +5,7 @@ import { useWishlist } from '../../context/WishlistContext';
 import { useCart } from '../../context/CartContext';
 import { primaryImage } from '../../data/products';
 import { formatDate, formatPrice } from '../../utils/format';
+import { assetUrl } from '../../api/client';
 import { Button } from '../../components/ui/Button';
 import { ArrowUpRightIcon } from '../../components/ui/Icons';
 
@@ -53,7 +54,7 @@ export default function AccountDashboard() {
               {latestOrder.items.slice(0, 5).map((line) => (
                 <img
                   key={line.id}
-                  src={line.image}
+                  src={assetUrl(line.image)}
                   alt={line.name}
                   className="h-20 w-16 rounded-lg object-cover"
                 />

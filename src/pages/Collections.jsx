@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { COLLECTIONS } from '../data/collections';
 import { Breadcrumbs } from '../components/layout/Breadcrumbs';
 import { ArrowUpRightIcon } from '../components/ui/Icons';
+import { assetUrl } from '../api/client';
 
 export default function Collections() {
   return (
@@ -31,7 +32,7 @@ export default function Collections() {
             }`}
           >
             <img
-              src={collection.image}
+              src={assetUrl(collection.image)}
               alt=""
               loading={index === 0 ? 'eager' : 'lazy'}
               className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"

@@ -42,9 +42,10 @@ export function Layout() {
 
       <Header />
 
-      {demoMode && (
+      {demoMode && import.meta.env.VITE_GITHUB_ONLY === 'false' && (
         <p role="status" className="bg-sand-200 px-4 py-2 text-center text-xs text-ink-700">
-          Preview catalog is shown. Configure the store API and WhatsApp contacts before taking live enquiries.
+          Preview catalog is shown. Connect the store API or publish configuration changes through
+          the GitHub-managed admin page before accepting live enquiries.
         </p>
       )}
 
