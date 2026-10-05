@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: clothing-ecommerce-api
+    runtime: node
+    plan: starter
+    buildCommand: npm ci
+    startCommand: npm run start:api
+    healthCheckPath: /api/health
+    disk:
+      name: clothing-ecommerce-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: 22.23.3
+      - key: NODE_ENV
+        value: production
+      - key: STORE_ORIGINS
+        value: https://logeshgp.github.io
+      - key: ADMIN_ORIGINS
+        value: https://logeshgp.github.io
+      - key: ALLOW_LAN_ORIGINS
+        value: "false"
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: DATA_DIR
+        value: /var/data
+      - key: DB_FILE
+        value: /var/data/store.db
+      - key: UPLOAD_DIR
+        value: /var/data/uploads
+      - key: ADMIN_EMAILS
+        sync: false
+      - key: BOOTSTRAP_PASSWORD
+        sync: false

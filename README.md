@@ -60,11 +60,24 @@ GitHub Pages serves only static files; it cannot run the API, persist product ed
 
 For a custom domain, add the exact HTTPS **origin** to the API CORS settings described below and configure that domain in GitHub Pages. The admin and storefront share the same browser origin under Pages.
 
-## Deploy the API
+## Deploy the API to Render
 
-Run this Node.js service on a trusted HTTPS host. The API uses SQLite and writes uploaded product photos to local storage, so configure a persistent disk/volume and point `DB_FILE` and `UPLOAD_DIR` at it. An ephemeral filesystem can lose the product catalogue and photos on restart or redeploy.
+The repository includes [`render.yaml`](./render.yaml), a Render Blueprint for the API. It uses Node.js 22, a persistent disk for the SQLite database and uploaded photos, exact GitHub Pages CORS origins, secure production cookies and the `/api/health` health check. Render persistent disks require a paid web-service plan; check current Render pricing before creating the service.
 
-Configure these environment variables on the API host (never in the frontend or GitHub Pages):
+1. Push the project to the `main` branch and open the [Render Dashboard](https://dashboard.render.com/).
+2. Choose **New → Blueprint**, connect the `logeshgp/clothing-ecommerce-platform` repository, and select the `main` branch.
+3. Review the `clothing-ecommerce-api` web service and its persistent disk from `render.yaml`. Confirm the plan and disk charges before applying.
+4. When prompted for the unsynced `ADMIN_EMAILS` and `BOOTSTRAP_PASSWORD` values, enter the administrator's email address and a unique, long password. Do not put the password in GitHub or source files.
+5. Apply the Blueprint and wait for the first deploy to finish. In the Render service dashboard, copy its HTTPS URL, such as `https://clothing-ecommerce-api.onrender.com`.
+6. Open **GitHub → Settings → Secrets and variables → Actions → Variables** and set `VITE_API_URL` to that API origin only (no trailing slash or `/api` path).
+7. Rerun **Deploy storefront and admin to GitHub Pages** from the repository's Actions tab.
+8. Verify `https://YOUR-API.onrender.com/api/health` returns JSON with `"ok": true`, then visit `https://logeshgp.github.io/clothing-ecommerce-platform/console/` and sign in with the configured email and bootstrap password.
+
+Keep the `ADMIN_EMAILS` allowlist restricted to staff. Set or rotate secrets from the Render dashboard; never commit production credentials. Keep `WHATSAPP_PROVIDER=log` (or omit it): customer orders use WhatsApp Click-to-Chat drafts, which the customer explicitly reviews and sends. No WhatsApp API credentials are needed for that flow.
+
+### Other Node.js hosts
+
+If using another trusted HTTPS host instead, the API needs a persistent disk/volume because SQLite and uploaded photos are stored on local disk. Configure these environment variables on the API host (never in the frontend or GitHub Pages):
 
 | Variable | Required production value |
 | --- | --- |
@@ -81,13 +94,11 @@ Configure these environment variables on the API host (never in the frontend or 
 | `DB_FILE` | Persistent database file, e.g. `/var/data/store.db` |
 | `UPLOAD_DIR` | Persistent directory, e.g. `/var/data/uploads` |
 
-The storefront has no online payment flow; payment checkout API requests are disabled. Customers use WhatsApp Click-to-Chat drafts, which they explicitly review and send. No WhatsApp API credentials are needed for that flow.
-
-After deployment, check `https://your-api.example.com/api/health`, then set GitHub's `VITE_API_URL` repository variable to `https://your-api.example.com` and rerun the Pages workflow.
+The storefront has no online payment flow; payment checkout API requests are disabled.
 
 ### Cross-origin administrator sessions
 
-The API is normally on a different host from GitHub Pages. In production the API therefore sets `Secure; SameSite=None` session cookies; exact CORS origins and CSRF tokens protect authenticated changes. Some browsers or privacy configurations block third-party cookies. For more reliable admin sign-in, use a custom storefront domain and an API hostname under the same registrable domain (for example, `shop.example.com` and `api.example.com`) and configure both allowed origins. Never solve cookie problems by enabling wildcard credentialed CORS or disabling CSRF.
+The API is normally on a different host from GitHub Pages. In production the API therefore sets `Secure; SameSite=None` session cookies; exact CORS origins and CSRF tokens protect authenticated changes. Some browsers or privacy configurations block third-party cookies, which can prevent admin sign-in. For more reliable sign-in, configure a custom storefront domain and an API hostname under the same registrable domain (for example, `shop.example.com` and `api.example.com`), then update `STORE_ORIGINS`, `ADMIN_ORIGINS` and `VITE_API_URL` to those HTTPS origins. Never solve cookie problems by enabling wildcard credentialed CORS or disabling CSRF.
 
 ## Configure the store
 
