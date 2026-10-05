@@ -1,0 +1,17 @@
+node_modules
+dist
+dist-ssr
+.vite
+dist-console
+dist-ssr
+server/data/
+uploads/
+*.local
+.DS_Store
+.env
+.env.*
+!.env.example
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.idea

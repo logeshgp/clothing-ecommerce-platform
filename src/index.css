@@ -1,0 +1,226 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------
+   DND Store design tokens
+   ------------------------------------------------------------------ */
+@theme {
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+
+  --color-sand-50: #faf8f4;
+  --color-sand-100: #f4f1ea;
+  --color-sand-200: #ebe6db;
+  --color-sand-300: #ddd5c5;
+  --color-sand-400: #c6baa3;
+
+  --color-ink-500: #6f6a60;
+  --color-ink-700: #3a3730;
+  --color-ink-900: #1a1a18;
+
+  --color-clay-400: #c47f5a;
+  --color-clay-500: #a9643f;
+  --color-moss-500: #5c6b52;
+  --color-berry-500: #8c3f52;
+
+  --radius-card: 1.25rem;
+
+  --shadow-soft: 0 1px 2px rgb(26 26 24 / 0.04), 0 12px 32px -16px rgb(26 26 24 / 0.18);
+  --shadow-lift: 0 2px 6px rgb(26 26 24 / 0.06), 0 24px 56px -24px rgb(26 26 24 / 0.3);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+@layer base {
+  * {
+    border-color: var(--color-sand-200);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-sand-100);
+    color: var(--color-ink-900);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink-900);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-ink-900);
+    color: var(--color-sand-100);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-sand-300);
+    border-radius: 999px;
+    border: 3px solid var(--color-sand-100);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-sand-400);
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Component utilities
+   ------------------------------------------------------------------ */
+@layer components {
+  .dnd-eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-ink-500);
+  }
+
+  .dnd-container {
+    width: 100%;
+    max-width: 90rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .dnd-container {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .dnd-container {
+      padding-inline: 4rem;
+    }
+  }
+
+  .dnd-field {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-sand-300);
+    background: #fff;
+    padding: 0.75rem 0.9rem;
+    font-size: 0.9375rem;
+    transition: border-color 0.18s var(--ease-out-soft), box-shadow 0.18s var(--ease-out-soft);
+  }
+
+  .dnd-field::placeholder {
+    color: var(--color-sand-400);
+  }
+
+  .dnd-field:focus {
+    outline: none;
+    border-color: var(--color-ink-900);
+    box-shadow: 0 0 0 3px rgb(26 26 24 / 0.08);
+  }
+
+  .dnd-field[aria-invalid='true'] {
+    border-color: var(--color-berry-500);
+  }
+
+  .dnd-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-ink-500);
+    margin-bottom: 0.4rem;
+  }
+
+  .dnd-marquee {
+    animation: dnd-marquee 32s linear infinite;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Animations
+   ------------------------------------------------------------------ */
+@keyframes dnd-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes dnd-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dnd-shimmer {
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-up {
+  animation: dnd-fade-up 0.5s var(--ease-out-soft) both;
+}
+
+.dnd-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-sand-200) 25%,
+    var(--color-sand-100) 50%,
+    var(--color-sand-200) 75%
+  );
+  background-size: 200% 100%;
+  animation: dnd-shimmer 1.4s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

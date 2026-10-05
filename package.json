@@ -1,0 +1,30 @@
+{
+  "name": "dnd-store-storefront",
+  "private": true,
+  "version": "1.1.0",
+  "type": "module",
+  "description": "DND Store — a clothing e-commerce storefront with an admin console, built with React, Vite and Tailwind CSS.",
+  "scripts": {
+    "dev": "vite --host",
+    "dev:console": "vite --config vite.config.console.js --host",
+    "dev:api": "node server/index.js",
+    "start:api": "node server/index.js",
+    "build": "vite build",
+    "build:console": "vite build --config vite.config.console.js",
+    "preview": "vite preview --host --port 4173",
+    "serve": "npm run build && npm run preview",
+    "share": "./scripts/share.sh",
+    "share:preview": "./scripts/share.sh preview"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.7",
+    "@vitejs/plugin-react": "^4.4.1",
+    "tailwindcss": "^4.1.7",
+    "vite": "^6.3.5"
+  }
+}

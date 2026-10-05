@@ -1,0 +1,40 @@
+/* Console-only overrides layered on top of the shared design tokens. */
+
+body {
+  background-color: var(--color-sand-100);
+}
+
+.console-shell {
+  min-height: 100vh;
+}
+
+.console-card {
+  border-radius: 1.5rem;
+  border: 1px solid var(--color-sand-300);
+  background: var(--color-sand-50);
+  padding: 1.5rem;
+}
+
+.console-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.console-table th {
+  text-align: left;
+  font-weight: 600;
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid var(--color-sand-300);
+  white-space: nowrap;
+}
+
+.console-table td {
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid var(--color-sand-200);
+  vertical-align: middle;
+}
+
+.console-table tr:last-child td {
+  border-bottom: 0;
+}
