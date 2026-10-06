@@ -65,7 +65,7 @@ The `/console/` admin page itself does not require a login. It keeps edits in th
 
 Opening the admin page does not require signing in. A GitHub account with repository write permission is still required on GitHub's own commit screen; no credential is embedded in the website. Changes become shared only after the files are committed and Pages redeploys. The initial sample catalogue remains as a fallback until the first `store-data.json` is committed.
 
-The sample catalogue currently covers four categories: pants, trousers, 3/4 pants and track pants. WhatsApp enquiries are enabled by default and point to `93613321260`; clicking the action opens a pre-filled WhatsApp draft for the customer to review and send. The admin editor can change that contact or disable WhatsApp.
+The sample catalogue currently covers four categories: pants, trousers, 3/4 pants and track pants. WhatsApp enquiries are enabled by default and point to `9361321260`; clicking the action opens a pre-filled WhatsApp draft for the customer to review and send. The admin editor can change that contact or disable WhatsApp.
 
 ## Optional API mode
 

@@ -40,7 +40,7 @@ export const SEED_SETTINGS = {
   whatsapp: {
     enabled: true,
     contacts: [
-      { id: 'owner', label: 'Store owner', number: '93613321260', enabled: true },
+      { id: 'owner', label: 'Store owner', number: '9361321260', enabled: true },
     ],
   },
 
