@@ -173,7 +173,8 @@ export function GitHubOnlyAdmin() {
       name: 'New product',
       category: store.categories[0]?.slug ?? 'pants',
       gender: 'unisex',
-      price: 0,
+      price: 999,
+      compareAt: 1199,
       fit: 'regular',
       fabric: 'Combed cotton',
       blurb: '',
@@ -192,7 +193,15 @@ export function GitHubOnlyAdmin() {
     updateStore((current) => ({
       ...current,
       products: current.products.map((product) =>
-        product.id === id ? { ...product, ...patch } : product,
+        product.id === id
+          ? {
+              ...product,
+              ...patch,
+              ...(patch.price !== undefined && Number(product.compareAt) <= Number(patch.price)
+                ? { compareAt: Math.ceil((Number(patch.price) * 1.2) / 100) * 100 }
+                : {}),
+            }
+          : product,
       ),
     }));
   }
@@ -980,6 +989,15 @@ function PhotoPicker({ label, image, onImage }) {
         <div className="mt-3 rounded-xl bg-sand-100 p-3 text-sm">
           <p>Suggested filename: <code className="font-semibold">{image.split('/').at(-1)}</code></p>
           <p className="mt-1 text-ink-600">The image path is set in this draft. Make a copy with this exact filename on your device, then select that copy on GitHub.</p>
+          {uploadFile && (
+            <a
+              href={preview}
+              download={image.split('/').at(-1)}
+              className={`${secondaryButton} mt-3`}
+            >
+              Download photo with suggested filename
+            </a>
+          )}
           <a
             href={`${REPOSITORY}/upload/main/public/images`}
             target="_blank"

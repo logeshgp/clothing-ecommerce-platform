@@ -7,6 +7,7 @@ import { useToast } from '../context/ToastContext';
 import { useRecentlyViewed } from '../context/RecentlyViewedContext';
 import { colorNames, relatedProducts, sizesInStock, stockFor } from '../data/products';
 import { formatPrice } from '../utils/format';
+import { bulkPrice } from '../utils/cart';
 import { ProductGallery } from '../components/product/ProductGallery';
 import { SizePicker } from '../components/product/SizePicker';
 import { SizeGuide } from '../components/product/SizeGuide';
@@ -108,6 +109,7 @@ export default function ProductDetail() {
   const saved = wishlist.has(product.id);
   const category = categoryMap[product.category];
   const festive = settings.festiveOffer;
+  const bulkPricing = bulkPrice(product.price, settings);
 
   function handleAddToBag() {
     if (!size) {
@@ -164,6 +166,22 @@ export default function ProductDetail() {
                 </>
               )}
             </div>
+
+            {bulkPricing.active && (
+              <div className="max-w-md rounded-2xl border border-moss-500/30 bg-moss-500/10 p-4">
+                <p className="text-sm font-semibold text-moss-500">
+                  Buy {bulkPricing.minQuantity}+ of this product and save {bulkPricing.percent}%
+                </p>
+                <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm">
+                  <span>1 piece: <strong>{formatPrice(product.price)}</strong></span>
+                  <span aria-hidden="true">·</span>
+                  <span>{bulkPricing.minQuantity} pieces: <strong>{formatPrice(bulkPricing.unitPrice)} each</strong></span>
+                </div>
+                <p className="mt-1 text-xs text-ink-600">
+                  {bulkPricing.minQuantity} pieces total {formatPrice(bulkPricing.unitPrice * bulkPricing.minQuantity)} · save {formatPrice(bulkPricing.savings * bulkPricing.minQuantity)}
+                </p>
+              </div>
+            )}
 
             {festive?.active && (
               <p className="inline-flex items-center gap-2 rounded-full bg-clay-400/20 px-3 py-1.5 text-xs font-semibold text-clay-500">

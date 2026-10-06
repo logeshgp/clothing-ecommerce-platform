@@ -25,8 +25,14 @@ export default function Home() {
   );
 
   const newArrivals = useMemo(
-    () => [...products].sort((a, b) => new Date(b.released) - new Date(a.released)).slice(0, 4),
-    [products],
+    () => {
+      const featuredIds = new Set(featured.map((product) => product.id));
+      return [...products]
+        .filter((product) => !featuredIds.has(product.id))
+        .sort((a, b) => new Date(b.released) - new Date(a.released))
+        .slice(0, 4);
+    },
+    [products, featured],
   );
 
   return (
@@ -213,7 +219,7 @@ export default function Home() {
       </section>}
 
       {/* ------------------------------------------------------ New in */}
-      {visibility.newArrivals !== false && <section className="dnd-container py-8" aria-labelledby="new-title">
+      {visibility.newArrivals !== false && newArrivals.length > 0 && <section className="dnd-container py-8" aria-labelledby="new-title">
         <div className="mb-8 flex items-end justify-between gap-4">
           <h2 id="new-title" className="text-2xl font-bold sm:text-3xl">
             {content.newArrivalsTitle ?? 'Just landed'}

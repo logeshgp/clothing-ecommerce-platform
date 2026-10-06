@@ -46,6 +46,21 @@ export function shippingCost(amount, methodId, methods = DEFAULT_SHIPPING_METHOD
   return method.price;
 }
 
+export function bulkPrice(price, settings) {
+  const bulk = settings?.bulkDiscount;
+  const minQuantity = Math.max(1, Number(bulk?.minQuantity) || 10);
+  const percent = Number(bulk?.percent) || 0;
+  const active = Boolean(bulk?.active && percent > 0);
+  const unitPrice = active ? round(price * (1 - percent / 100)) : round(price);
+  return {
+    active,
+    minQuantity,
+    percent,
+    unitPrice,
+    savings: round(price - unitPrice),
+  };
+}
+
 /**
  * Single source of truth for every total shown in the drawer, cart page,
  * checkout and order records.
@@ -59,11 +74,26 @@ export function shippingCost(amount, methodId, methods = DEFAULT_SHIPPING_METHOD
 export function calculateTotals(items, { promo = null, shippingMethod = 'standard', settings } = {}) {
   const itemCount = cartCount(items);
   const bulk = settings?.bulkDiscount;
-  const bulkActive = Boolean(
-    bulk?.active && bulk.percent > 0 && itemCount >= (Number(bulk.minQuantity) || Infinity),
-  );
   const subtotal = round(cartSubtotal(items));
-  const bulkDiscount = bulkActive ? round(subtotal * (bulk.percent / 100)) : 0;
+  const bulkMinQuantity = Math.max(1, Number(bulk?.minQuantity) || 10);
+  const quantitiesByProduct = items.reduce((counts, line) => {
+    counts[line.productId] = (counts[line.productId] ?? 0) + line.quantity;
+    return counts;
+  }, {});
+  const qualifyingProducts = new Set(
+    Object.entries(quantitiesByProduct)
+      .filter(([, quantity]) => bulk?.active && Number(bulk?.percent) > 0 && quantity >= bulkMinQuantity)
+      .map(([productId]) => productId),
+  );
+  const bulkDiscount = qualifyingProducts.size
+    ? round(items.reduce(
+        (discount, line) => discount + (qualifyingProducts.has(line.productId)
+          ? lineSubtotal(line) * (Number(bulk.percent) / 100)
+          : 0),
+        0,
+      ))
+    : 0;
+  const bulkActive = bulkDiscount > 0;
   const afterBulk = Math.max(round(subtotal - bulkDiscount), 0);
   const festive = settings?.festiveOffer;
 

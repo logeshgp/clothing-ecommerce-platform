@@ -11,7 +11,7 @@ import { QuantityStepper } from '../ui/QuantityStepper';
 import { CloseIcon, TrashIcon } from '../ui/Icons';
 
 export function CartDrawer() {
-  const { items, totals, isOpen, closeCart, updateQuantity, removeItem, changeSize } = useCart();
+  const { items, totals, selectedItems, bagItemCount, isOpen, closeCart, updateQuantity, removeItem, changeSize } = useCart();
   const { productsById } = useStore();
 
   return (
@@ -21,7 +21,7 @@ export function CartDrawer() {
           <p className="dnd-eyebrow">Your selection</p>
           <h2 className="mt-1 text-xl font-semibold">
             Your bag{' '}
-            <span className="ml-1 text-sm font-normal text-ink-500">({totals.itemCount})</span>
+            <span className="ml-1 text-sm font-normal text-ink-500">({bagItemCount})</span>
           </h2>
         </div>
         <IconButton label="Close bag" onClick={closeCart}>
@@ -125,6 +125,11 @@ export function CartDrawer() {
                       <span className="text-sm font-semibold tabular-nums">
                         {formatPrice(line.price * line.quantity)}
                       </span>
+                      {line.compareAt > line.price && (
+                        <s className="text-xs text-ink-500">
+                          {formatPrice(line.compareAt * line.quantity)}
+                        </s>
+                      )}
                     </div>
                   </div>
                 </li>
@@ -173,9 +178,15 @@ export function CartDrawer() {
           </p>
 
           <div className="space-y-2">
-            <Button to="/checkout" onClick={closeCart} full>
-              Request on WhatsApp
-            </Button>
+            {selectedItems.length ? (
+              <Button to="/checkout" onClick={closeCart} full>
+                Continue with selected items
+              </Button>
+            ) : (
+              <Button to="/cart" onClick={closeCart} variant="outline" full>
+                Select bag items to continue
+              </Button>
+            )}
             <Button to="/cart" onClick={closeCart} variant="outline" full>
               View full bag
             </Button>

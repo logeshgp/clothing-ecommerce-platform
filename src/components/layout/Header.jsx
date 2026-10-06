@@ -15,7 +15,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [announcementIndex, setAnnouncementIndex] = useState(0);
 
-  const { totals, openCart } = useCart();
+  const { totals, bagItemCount, openCart } = useCart();
   const wishlist = useWishlist();
   const { activeAnnouncements, categories, settings } = useStore();
   const navigate = useNavigate();
@@ -126,7 +126,7 @@ export function Header() {
               <BagIcon className="h-4 w-4" />
               <span className="max-sm:sr-only">Bag</span>
               <span className="min-w-4 rounded-full bg-sand-100/20 px-1.5 text-xs tabular-nums">
-                {totals.itemCount}
+                {bagItemCount}
               </span>
             </button>
           </div>

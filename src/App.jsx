@@ -13,6 +13,7 @@ import BulkOrder from './pages/BulkOrder';
 import Privacy from './pages/Privacy';
 import NotFound from './pages/NotFound';
 import Terms from './pages/Terms';
+import Feedback from './pages/Feedback';
 
 /**
  * Storefront routes only.
@@ -40,6 +41,7 @@ export function App() {
         <Route path="bulk-order" element={<BulkOrder />} />
         <Route path="privacy" element={<Privacy />} />
         <Route path="terms" element={<Terms />} />
+        <Route path="feedback" element={<Feedback />} />
 
         <Route path="*" element={<NotFound />} />
       </Route>

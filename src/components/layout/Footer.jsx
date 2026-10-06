@@ -59,6 +59,7 @@ export function Footer() {
           {visibility.bulkOrder !== false && <FooterLink to="/bulk-order">Wholesale enquiries</FooterLink>}
           <FooterLink to="/wishlist">Wishlist</FooterLink>
           <FooterLink to="/cart">Bag</FooterLink>
+          <FooterLink to="/feedback">Share feedback</FooterLink>
         </FooterColumn>
 
         <FooterColumn title="Seller information">

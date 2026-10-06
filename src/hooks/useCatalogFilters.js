@@ -28,7 +28,7 @@ export function useCatalogFilters(categoryFromRoute) {
     [params, categoryFromRoute],
   );
 
-  const sort = params.get('sort') ?? 'featured';
+  const sort = params.get('sort') ?? 'newest';
   const page = Number(params.get('page')) || 1;
   const view = params.get('view') === 'list' ? 'list' : 'grid';
 
@@ -47,7 +47,7 @@ export function useCatalogFilters(categoryFromRoute) {
               value < PRICE_BOUNDS.max ? next.set(paramKey, String(value)) : next.delete(paramKey);
             } else if (key === 'onSale' || key === 'inStock') {
               value ? next.set(paramKey, '1') : next.delete(paramKey);
-            } else if (!value || value === 'all' || value === 'featured' || value === 'grid') {
+            } else if (!value || value === 'all' || value === 'newest' || value === 'grid') {
               next.delete(paramKey);
             } else {
               next.set(paramKey, String(value));

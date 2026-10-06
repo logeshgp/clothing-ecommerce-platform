@@ -62,6 +62,9 @@ export function MobileNav({ open, onClose }) {
           <li>
             <MobileLink to="/cart">Bag</MobileLink>
           </li>
+          <li>
+            <MobileLink to="/feedback">Share feedback</MobileLink>
+          </li>
         </ul>
 
         <p className="dnd-eyebrow mb-3 mt-8">Orders</p>

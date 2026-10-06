@@ -68,7 +68,7 @@ export default function Wishlist() {
   );
 }
 
-function WishlistRow({ product }) {
+export function WishlistRow({ product }) {
   const colors = colorNames(product);
   const [color, setColor] = useState(colors[0]);
   const [size, setSize] = useState(null);
@@ -93,8 +93,7 @@ function WishlistRow({ product }) {
       quantity: 1,
       maxQuantity: Math.min(stockBySize[size], 10),
     });
-    wishlist.remove(product.id);
-    notify(`${product.name} moved to your bag.`, {
+    notify(`${product.name} added to your bag.`, {
       tone: 'success',
       action: { label: 'View bag', onClick: openCart },
     });
@@ -155,7 +154,7 @@ function WishlistRow({ product }) {
 
         <div className="mt-auto flex flex-wrap items-center gap-3 pt-1">
           <Button onClick={handleAdd} disabled={!available.length} size="sm">
-            {available.length ? 'Move to bag' : 'Sold out'}
+            {available.length ? 'Add to bag' : 'Sold out'}
           </Button>
           <button
             type="button"

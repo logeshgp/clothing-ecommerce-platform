@@ -5,6 +5,10 @@ A responsive React storefront for pants, trousers, 3/4 pants and track pants. Th
 ## What is included
 
 - Product browsing, search, categories, sizing, cart and wishlist.
+- The initial published catalog shows exactly four products: one pants style, one trouser, one track pant and one 3/4 pant. More can be added in the admin page.
+- Combined bag and wishlist view with per-item selection; only checked bag items go to the estimate and WhatsApp enquiry.
+- Product-level wholesale pricing: the configured discount applies once a single product reaches the minimum quantity, with one-piece and bulk totals shown on product detail.
+- Feedback page at `/feedback`, which prepares a WhatsApp draft for the owner.
 - WhatsApp purchase enquiries: customers review and send a pre-filled draft; this website does not collect payment or claim an order is placed.
 - A separate wholesale enquiry page and configurable quantity discount.
 - An admin editor at `/console/` for products, storefront visibility, prices, promotions, announcements, wholesale settings and WhatsApp contacts.
@@ -53,13 +57,15 @@ No `VITE_API_URL`, backend service or external hosting account is needed for thi
 The `/console/` admin page itself does not require a login. It keeps edits in the current browser and can export a `store-data.json` file. GitHub Pages cannot write to your repository anonymously, so publishing is done through GitHub's normal upload and commit screens:
 
 1. Open `https://logeshgp.github.io/clothing-ecommerce-platform/console/`.
-2. Use **Products**, **Storefront** and **Offers & messages** to edit products, prices, stock, visibility flags, home hero, banner, announcements, promotions, wholesale settings, seller details and WhatsApp contacts. Drafts stay in this browser; download the JSON before switching browsers or clearing site data.
-3. To select a photo, choose **Choose photo** beside a product, hero, banner or collection. The editor previews it and adds a generated `/images/...` path to the draft. Make a copy of the photo on your device with the suggested filename, then choose **Upload photo on GitHub** and select that renamed copy.
+2. Use **Products**, **Storefront** and **Offers & messages** to edit products, prices, stock, visibility flags, home hero, banner, announcements, promotions, wholesale settings, seller details and WhatsApp contacts. The shop defaults to **New arrivals** sort. Drafts stay in this browser; download the JSON before switching browsers or clearing site data.
+3. To select a photo, choose **Choose photo** beside a product, hero, banner or collection. The editor previews it and adds a unique timestamped `/images/...` path to the draft. Choose **Download photo with suggested filename** to get a copy ready for GitHub, then use **Upload photo on GitHub** to upload that downloaded copy.
 4. In GitHub's upload screen, commit each photo to `public/images/`. The image path is already added to the draft; the file itself must be uploaded and committed by you.
 5. In the admin page's **Publish** tab, choose **Download store data**. Upload it as `public/store-data.json` the first time. For later changes, open the existing file on GitHub, replace its contents with the downloaded JSON, and commit. Use a GitHub account with write permission to this repository; you can commit to `main` or create a pull request.
 6. If photos and data are uploaded in separate commits, wait for the deployment triggered by the last commit. In **Actions**, confirm that the Pages workflow completed before checking the storefront.
 
 Opening the admin page does not require signing in. A GitHub account with repository write permission is still required on GitHub's own commit screen; no credential is embedded in the website. Changes become shared only after the files are committed and Pages redeploys. The initial sample catalogue remains as a fallback until the first `store-data.json` is committed.
+
+The sample catalogue currently covers four categories: pants, trousers, 3/4 pants and track pants. WhatsApp enquiries are enabled by default and point to `93613321260`; clicking the action opens a pre-filled WhatsApp draft for the customer to review and send. The admin editor can change that contact or disable WhatsApp.
 
 ## Optional API mode
 

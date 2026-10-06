@@ -10,7 +10,7 @@ import { OrderSummary } from '../components/cart/OrderSummary';
 import { Button } from '../components/ui/Button';
 
 export default function Checkout() {
-  const { items, totals } = useCart();
+  const { selectedItems, totals } = useCart();
   const { settings } = useStore();
   const { notify } = useToast();
   const [customer, setCustomer] = useState({ name: '', phone: '', note: '' });
@@ -19,14 +19,14 @@ export default function Checkout() {
 
   const recipients = useMemo(() => getWhatsAppContacts(settings), [settings]);
 
-  if (!items.length) return <Navigate to="/cart" replace />;
+  if (!selectedItems.length) return <Navigate to="/cart" replace />;
 
   function buildMessage() {
     const lines = [
       `Hello ${settings.storeName || 'Store'}, I would like to enquire about placing an order.`,
       '',
       '*Items requested*',
-      ...items.map(
+      ...selectedItems.map(
         (item, index) =>
           `${index + 1}. ${item.name} — ${item.color}, size ${item.size} × ${item.quantity} = ${formatPrice(item.price * item.quantity)}`,
       ),

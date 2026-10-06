@@ -38,8 +38,10 @@ export const SEED_SETTINGS = {
   },
 
   whatsapp: {
-    enabled: false,
-    contacts: [],
+    enabled: true,
+    contacts: [
+      { id: 'owner', label: 'Store owner', number: '93613321260', enabled: true },
+    ],
   },
 
   shippingMethods: [

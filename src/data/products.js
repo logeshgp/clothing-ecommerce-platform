@@ -508,12 +508,18 @@ export function hydrateProduct(raw) {
       'Check the size guide for garment measurements',
     ],
     measurements: Object.fromEntries(sizes.map((s) => [s, MEASUREMENTS[s]])),
-    compareAt: raw.compareAt ?? null,
+    compareAt: Math.max(
+      Number(raw.compareAt) || Math.ceil((Number(raw.price) * 1.2) / 100) * 100,
+      Number(raw.price) + 1,
+    ),
     tags: raw.tags ?? [],
   };
 }
 
-export const SEED_PRODUCTS = RAW.map(hydrateProduct);
+const INITIAL_PRODUCT_IDS = new Set(['p-001', 'p-008', 'p-014', 'p-019']);
+export const SEED_PRODUCTS = RAW
+  .filter((product) => INITIAL_PRODUCT_IDS.has(product.id))
+  .map(hydrateProduct);
 
 /* ------------------------------------------------------------------
    Helpers — pure, so they work against any product list (seed or admin-edited)
