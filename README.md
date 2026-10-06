@@ -10,6 +10,7 @@ A responsive React storefront for pants, trousers, 3/4 pants and track pants. Th
 - Product-level wholesale pricing: the configured discount applies once a single product reaches the minimum quantity, with one-piece and bulk totals shown on product detail.
 - Feedback page at `/feedback`, which prepares a WhatsApp draft for the owner.
 - WhatsApp purchase enquiries: customers review and send a pre-filled draft; this website does not collect payment or claim an order is placed.
+- An optional Google Pay UPI deep-link demo at checkout using the placeholder `demo@upi` recipient. It is not a real payment integration and does not confirm or record payment.
 - A separate wholesale enquiry page and configurable quantity discount.
 - An admin editor at `/console/` for products, storefront visibility, prices, promotions, announcements, wholesale settings and WhatsApp contacts.
 - Product photos committed to `public/images/` and served by GitHub Pages; published store data is in `public/store-data.json`.

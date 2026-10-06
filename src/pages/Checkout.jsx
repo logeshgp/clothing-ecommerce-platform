@@ -6,6 +6,7 @@ import { useToast } from '../context/ToastContext';
 import { formatPrice } from '../utils/format';
 import { isPhone, isRequired } from '../utils/validation';
 import { getWhatsAppContacts, openWhatsAppMessage } from '../utils/whatsapp';
+import { buildGooglePayDemoUrl, DEMO_UPI_ID } from '../utils/upi';
 import { OrderSummary } from '../components/cart/OrderSummary';
 import { Button } from '../components/ui/Button';
 
@@ -68,6 +69,19 @@ export default function Checkout() {
     notify('Review the WhatsApp draft and tap Send to share your enquiry.', { tone: 'success' });
   }
 
+  function openDemoGooglePay() {
+    if (totals.total <= 0) {
+      notify('A positive amount is required to open the UPI demo.', { tone: 'error' });
+      return;
+    }
+
+    window.location.assign(buildGooglePayDemoUrl({
+      amount: totals.total,
+      payeeName: settings.storeName,
+      transactionNote: `Demo checkout for ${totals.itemCount} items`,
+    }));
+  }
+
   return (
     <div className="dnd-container py-10">
       <header className="flex flex-wrap items-center justify-between gap-6 border-b border-sand-200 pb-8">
@@ -85,8 +99,8 @@ export default function Checkout() {
           <section className="rounded-3xl border border-sand-300 bg-sand-50 p-6 sm:p-8">
             <h2 className="text-xl font-semibold">Your contact details</h2>
             <p className="mt-2 text-sm leading-relaxed text-ink-500">
-              No payment is collected here. Your order is only placed after the seller confirms
-              availability, the final quote and delivery details with you.
+              WhatsApp enquiries do not collect payment. You can also open the separate UPI demo
+              below; it uses a placeholder ID and does not process or verify a transaction.
             </p>
 
             <form
@@ -182,6 +196,27 @@ export default function Checkout() {
                   details in the footer.
                 </div>
               )}
+
+              <div className="space-y-3 border-t border-sand-200 pt-5">
+                <div>
+                  <h3 className="font-semibold">Try UPI checkout (demo)</h3>
+                  <p className="mt-1 text-xs leading-relaxed text-ink-500">
+                    Opens Google Pay with the estimated selected-item amount ({formatPrice(totals.total)})
+                    and placeholder UPI ID <code>{DEMO_UPI_ID}</code>. This demo recipient is not a
+                    real store account. No payment is processed, confirmed or recorded, and the
+                    amount excludes any taxes or delivery charges the seller may later confirm.
+                  </p>
+                </div>
+                <Button
+                  type="button"
+                  variant="outline"
+                  full
+                  disabled={totals.total <= 0}
+                  onClick={openDemoGooglePay}
+                >
+                  Open Google Pay · UPI demo
+                </Button>
+              </div>
             </form>
           </section>
 
