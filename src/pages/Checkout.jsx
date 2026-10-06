@@ -6,7 +6,6 @@ import { useToast } from '../context/ToastContext';
 import { formatPrice } from '../utils/format';
 import { isPhone, isRequired } from '../utils/validation';
 import { getWhatsAppContacts, openWhatsAppMessage } from '../utils/whatsapp';
-import { buildGooglePayDemoUrl, isPlaceholderPayee, payeeVpa } from '../utils/upi';
 import { OrderSummary } from '../components/cart/OrderSummary';
 import { Button } from '../components/ui/Button';
 
@@ -69,35 +68,6 @@ export default function Checkout() {
     notify('Review the WhatsApp draft and tap Send to share your enquiry.', { tone: 'success' });
   }
 
-  function openDemoGooglePay() {
-    if (totals.total <= 0) {
-      notify('A positive amount is required to open the UPI demo.', { tone: 'error' });
-      return;
-    }
-
-    let url;
-    try {
-      url = buildGooglePayDemoUrl({
-        amount: totals.total,
-        payeeName: settings.storeName,
-        transactionNote: `Demo checkout for ${totals.itemCount} items`,
-      });
-    } catch (error) {
-      // Error handling fix: a rejected amount or payee must not throw inside
-      // the click handler and blank the page.
-      notify(error.message, { tone: 'error' });
-      return;
-    }
-
-    // Open-redirect fix: hand the deep link to a new context with `noopener`
-    // instead of navigating the storefront itself to a non-HTTP scheme.
-    const anchor = document.createElement('a');
-    anchor.href = url;
-    anchor.target = '_blank';
-    anchor.rel = 'noopener noreferrer';
-    anchor.click();
-  }
-
   return (
     <div className="dnd-container py-10">
       <header className="flex flex-wrap items-center justify-between gap-6 border-b border-sand-200 pb-8">
@@ -115,8 +85,8 @@ export default function Checkout() {
           <section className="rounded-3xl border border-sand-300 bg-sand-50 p-6 sm:p-8">
             <h2 className="text-xl font-semibold">Your contact details</h2>
             <p className="mt-2 text-sm leading-relaxed text-ink-500">
-              WhatsApp enquiries do not collect payment. You can also open the separate UPI demo
-              below; it uses a placeholder ID and does not process or verify a transaction.
+              Send your purchase enquiry to the store on WhatsApp. Payment is arranged directly
+              with the seller; this website does not collect payment.
             </p>
 
             <form
@@ -212,30 +182,6 @@ export default function Checkout() {
                   details in the footer.
                 </div>
               )}
-
-              <div className="space-y-3 border-t border-sand-200 pt-5">
-                <div>
-                  <h3 className="font-semibold">Try UPI checkout (demo)</h3>
-                  <p className="mt-1 text-xs leading-relaxed text-ink-500">
-                    Opens Google Pay with the estimated selected-item amount ({formatPrice(totals.total)})
-                    and the UPI ID <code>{payeeVpa()}</code>.{' '}
-                    {isPlaceholderPayee()
-                      ? 'That is a deliberately invalid placeholder, so no payment app can complete a transfer with it.'
-                      : 'Check the recipient in your payment app before approving anything.'}{' '}
-                    No payment is processed, confirmed or recorded by this website, and the amount
-                    excludes any taxes or delivery charges the seller may later confirm.
-                  </p>
-                </div>
-                <Button
-                  type="button"
-                  variant="outline"
-                  full
-                  disabled={totals.total <= 0}
-                  onClick={openDemoGooglePay}
-                >
-                  Open Google Pay · UPI demo
-                </Button>
-              </div>
             </form>
           </section>
 

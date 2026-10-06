@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useStore } from '../../context/StoreContext';
 
-export function Footer() {
+export function Footer({ showCollections = true }) {
   const { settings, categories } = useStore();
   const [first, ...rest] = (settings.storeName ?? 'DND Store').split(' ');
   const visibility = settings.visibility ?? {};
@@ -51,11 +51,11 @@ export function Footer() {
               {category.name}
             </FooterLink>
           ))}
-          {visibility.collections !== false && <FooterLink to="/collections">Collections</FooterLink>}
+          {showCollections && visibility.collections !== false && <FooterLink to="/collections">Collections</FooterLink>}
         </FooterColumn>
 
         <FooterColumn title="Explore">
-          {visibility.collections !== false && <FooterLink to="/collections">Collections</FooterLink>}
+          {showCollections && visibility.collections !== false && <FooterLink to="/collections">Collections</FooterLink>}
           {visibility.bulkOrder !== false && <FooterLink to="/bulk-order">Wholesale enquiries</FooterLink>}
           <FooterLink to="/wishlist">Wishlist</FooterLink>
           <FooterLink to="/cart">Bag</FooterLink>

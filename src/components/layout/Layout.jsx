@@ -53,7 +53,7 @@ export function Layout() {
         <Outlet />
       </main>
 
-      <Footer />
+      <Footer showCollections={pathname !== '/checkout'} />
       <CartDrawer />
       <BannerPopup />
       <Toaster />
