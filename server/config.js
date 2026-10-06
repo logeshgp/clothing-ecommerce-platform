@@ -49,6 +49,13 @@ export const config = {
     allowLan: bool(process.env.ALLOW_LAN_ORIGINS, !isProduction),
   },
 
+  /**
+   * Only trust `X-Forwarded-For` when the API genuinely sits behind a reverse
+   * proxy you control. Otherwise any client can spoof the header and sidestep
+   * every per-IP rate limit.
+   */
+  trustProxy: bool(process.env.TRUST_PROXY, false),
+
   session: {
     cookieName: 'dnd_session',
     csrfCookieName: 'dnd_csrf',
@@ -126,17 +133,27 @@ export const config = {
 export function assertProductionSafety() {
   if (!config.isProduction) return;
 
-  const problems = [];
+  // Misconfiguration fix: settings that would let anyone sign in as an
+  // administrator, or send session cookies in clear text, are fatal — the
+  // process refuses to boot rather than starting in an insecure state.
+  const fatal = [];
   if (config.access.bootstrapPassword === 'ChangeMe!2026') {
-    problems.push('BOOTSTRAP_PASSWORD is still the default.');
+    fatal.push('BOOTSTRAP_PASSWORD is still the documented default.');
   }
-  if (!config.session.secure) problems.push('COOKIE_SECURE should be true behind HTTPS.');
-  if (config.origins.allowLan) problems.push('ALLOW_LAN_ORIGINS should be false in production.');
+  if (!config.session.secure) fatal.push('COOKIE_SECURE must be true behind HTTPS.');
+  if (config.origins.allowLan) fatal.push('ALLOW_LAN_ORIGINS must be false in production.');
+  if (!process.env.ADMIN_EMAILS) {
+    fatal.push('ADMIN_EMAILS is unset — the default admin account would be live.');
+  }
+  if (!process.env.STORE_ORIGINS || !process.env.ADMIN_ORIGINS) {
+    fatal.push('STORE_ORIGINS and ADMIN_ORIGINS must list the real deployed origins.');
+  }
 
-  if (problems.length) {
-    console.warn('\n[security] Review before going live:');
-    problems.forEach((p) => console.warn(`  · ${p}`));
-    console.warn('');
+  if (fatal.length) {
+    console.error('\n[security] Refusing to start — unsafe production configuration:');
+    fatal.forEach((f) => console.error(`  · ${f}`));
+    console.error('');
+    process.exit(1);
   }
 }
 

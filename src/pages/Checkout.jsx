@@ -6,7 +6,7 @@ import { useToast } from '../context/ToastContext';
 import { formatPrice } from '../utils/format';
 import { isPhone, isRequired } from '../utils/validation';
 import { getWhatsAppContacts, openWhatsAppMessage } from '../utils/whatsapp';
-import { buildGooglePayDemoUrl, DEMO_UPI_ID } from '../utils/upi';
+import { buildGooglePayDemoUrl, isPlaceholderPayee, payeeVpa } from '../utils/upi';
 import { OrderSummary } from '../components/cart/OrderSummary';
 import { Button } from '../components/ui/Button';
 
@@ -75,11 +75,27 @@ export default function Checkout() {
       return;
     }
 
-    window.location.assign(buildGooglePayDemoUrl({
-      amount: totals.total,
-      payeeName: settings.storeName,
-      transactionNote: `Demo checkout for ${totals.itemCount} items`,
-    }));
+    let url;
+    try {
+      url = buildGooglePayDemoUrl({
+        amount: totals.total,
+        payeeName: settings.storeName,
+        transactionNote: `Demo checkout for ${totals.itemCount} items`,
+      });
+    } catch (error) {
+      // Error handling fix: a rejected amount or payee must not throw inside
+      // the click handler and blank the page.
+      notify(error.message, { tone: 'error' });
+      return;
+    }
+
+    // Open-redirect fix: hand the deep link to a new context with `noopener`
+    // instead of navigating the storefront itself to a non-HTTP scheme.
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.target = '_blank';
+    anchor.rel = 'noopener noreferrer';
+    anchor.click();
   }
 
   return (
@@ -202,9 +218,12 @@ export default function Checkout() {
                   <h3 className="font-semibold">Try UPI checkout (demo)</h3>
                   <p className="mt-1 text-xs leading-relaxed text-ink-500">
                     Opens Google Pay with the estimated selected-item amount ({formatPrice(totals.total)})
-                    and placeholder UPI ID <code>{DEMO_UPI_ID}</code>. This demo recipient is not a
-                    real store account. No payment is processed, confirmed or recorded, and the
-                    amount excludes any taxes or delivery charges the seller may later confirm.
+                    and the UPI ID <code>{payeeVpa()}</code>.{' '}
+                    {isPlaceholderPayee()
+                      ? 'That is a deliberately invalid placeholder, so no payment app can complete a transfer with it.'
+                      : 'Check the recipient in your payment app before approving anything.'}{' '}
+                    No payment is processed, confirmed or recorded by this website, and the amount
+                    excludes any taxes or delivery charges the seller may later confirm.
                   </p>
                 </div>
                 <Button

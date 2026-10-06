@@ -1,4 +1,4 @@
-import { randomUUID, randomInt } from 'node:crypto';
+import { randomUUID, randomInt, timingSafeEqual } from 'node:crypto';
 import { config } from '../config.js';
 import { db, now, audit } from '../db.js';
 import {
@@ -19,6 +19,14 @@ import {
 import { fail, readJson, send } from '../http.js';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
+
+/** Constant-time string comparison for secrets of equal expected length. */
+function timingSafeMatch(a, b) {
+  const left = Buffer.from(String(a));
+  const right = Buffer.from(String(b));
+  if (left.length !== right.length) return false;
+  return timingSafeEqual(left, right);
+}
 
 function publicUser(user) {
   return {
@@ -168,6 +176,11 @@ export async function handleAuth(req, res, pathname, session) {
   }
 
   if (pathname === '/api/auth/code/verify' && req.method === 'POST') {
+    // Brute force fix: the per-email attempt counter can be reset by simply
+    // requesting a fresh code, so verification needs its own per-IP cap.
+    const verifyLimit = rateLimit(`code-verify:${ip}`, config.rateLimits.login);
+    if (!verifyLimit.ok) return fail(res, 429, 'Too many attempts. Try again in a few minutes.');
+
     const body = await readJson(req);
     const email = clean(body.email, 160).toLowerCase();
     const code = clean(body.code, 10);
@@ -186,8 +199,12 @@ export async function handleAuth(req, res, pathname, session) {
       return fail(res, 429, 'Too many wrong codes. Request a new one.');
     }
 
-    if (sha256(code) !== row.code_hash) {
-      db.prepare('UPDATE login_codes SET attempts = attempts + 1 WHERE email = ?').run(email);
+    // Brute force fix: count the attempt *before* comparing, so a crash or a
+    // disconnect mid-request cannot be used to retry indefinitely.
+    db.prepare('UPDATE login_codes SET attempts = attempts + 1 WHERE email = ?').run(email);
+
+    // Timing fix: constant-time compare so the stored hash cannot be probed
+    if (!timingSafeMatch(sha256(code), row.code_hash)) {
       return fail(res, 401, 'That code is incorrect.');
     }
 
@@ -229,12 +246,19 @@ export async function handleAuth(req, res, pathname, session) {
   if (pathname === '/api/auth/password' && req.method === 'POST') {
     if (!session) return fail(res, 401, 'Sign in to continue.');
 
+    // Brute force fix: throttle current-password guessing on a hijacked tab.
+    const pwLimit = rateLimit(`password:${session.user.id}`, config.rateLimits.login);
+    if (!pwLimit.ok) return fail(res, 429, 'Too many attempts. Try again in a few minutes.');
+
     const body = await readJson(req);
     const user = db.prepare('SELECT * FROM users WHERE id = ?').get(session.user.id);
+    if (!user) return fail(res, 401, 'Sign in to continue.');
+
     const current = String(body.currentPassword ?? '');
     const next = String(body.newPassword ?? '');
 
     if (user.password_hash && !verifyPassword(current, user.password_hash, user.password_salt)) {
+      audit('auth.password_change_failed', { actor: user.email, ip });
       return fail(res, 401, 'Current password is incorrect.');
     }
 

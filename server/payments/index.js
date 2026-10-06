@@ -27,15 +27,20 @@ export function getGateway() {
     return active;
   }
 
-  active = factory();
+  const candidate = factory();
 
-  if (!active.configured) {
-    console.warn(
-      `[payments] ${active.label} is selected but missing credentials — falling back to mock.`,
+  if (!candidate.configured) {
+    // Payment bypass fix: the mock gateway authorises any Luhn-valid card, so a
+    // production fallback is logged loudly; MockGateway itself refuses to
+    // authorise anything when NODE_ENV=production.
+    console.error(
+      `[payments] ${candidate.label} is selected but missing credentials — falling back to mock.`,
     );
     active = REGISTRY.mock();
+    return active;
   }
 
+  active = candidate;
   return active;
 }
 

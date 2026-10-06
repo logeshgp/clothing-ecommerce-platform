@@ -1,4 +1,4 @@
-import { randomUUID } from 'node:crypto';
+import { randomBytes, timingSafeEqual } from 'node:crypto';
 import { db, now, getSetting, audit } from '../db.js';
 import { config } from '../config.js';
 import { clean, rateLimit, clientIp } from '../security.js';
@@ -21,6 +21,42 @@ import { loadProduct } from './catalog.js';
  */
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
+
+/** Upper bound on distinct cart lines accepted in a single checkout request. */
+const MAX_CART_LINES = 50;
+
+/**
+ * Order identifiers are quoted by guests to retrieve their order, so they are
+ * treated as a capability: unguessable, and never derived from the clock.
+ */
+function newOrderId() {
+  // IDOR fix: replaced timestamp-derived (enumerable) order id with random token
+  return `DND-${randomBytes(9).toString('base64url').toUpperCase()}`;
+}
+
+/** Constant-time compare; an empty claimed value never matches. */
+function sameValue(a, b) {
+  const left = Buffer.from(String(a ?? ''));
+  const right = Buffer.from(String(b ?? ''));
+  if (left.length === 0 || left.length !== right.length) return false;
+  return timingSafeEqual(left, right);
+}
+
+/**
+ * Who may read an order: the signed-in owner, staff, or someone who can quote
+ * the exact email recorded on it (the guest confirmation page).
+ */
+function canAccessOrder(row, session, claimedEmail) {
+  if (session) {
+    if (row.user_id && row.user_id === session.user.id) return true;
+    if (['admin', 'support'].includes(session.user.role)) return true;
+    if (sameValue(String(session.user.email).toLowerCase(), String(row.email).toLowerCase())) {
+      return true;
+    }
+  }
+  // BOLA fix: constant-time match; a blank header can no longer satisfy the check
+  return sameValue(claimedEmail, String(row.email).toLowerCase());
+}
 
 function round(value) {
   return Math.round((Number(value) + Number.EPSILON) * 100) / 100;
@@ -186,6 +222,11 @@ export async function handleOrders(req, res, pathname, session) {
     if (!Array.isArray(body.items) || body.items.length === 0) {
       return fail(res, 400, 'Your bag is empty.');
     }
+    // DoS fix: bound the number of cart lines so one request cannot force
+    // thousands of product lookups.
+    if (body.items.length > MAX_CART_LINES) {
+      return fail(res, 400, 'Too many items in your bag.');
+    }
 
     let priced;
     try {
@@ -195,7 +236,7 @@ export async function handleOrders(req, res, pathname, session) {
     }
 
     const gateway = getGateway();
-    const orderId = `DND-${Date.now().toString(36).toUpperCase().slice(-6)}`;
+    const orderId = newOrderId();
 
     let intent;
     try {
@@ -320,15 +361,18 @@ export async function handleOrders(req, res, pathname, session) {
     if (!row) return fail(res, 404, 'Order not found.');
 
     const order = JSON.parse(row.data);
-    const email = String(req.headers['x-order-email'] ?? '').toLowerCase();
+    const email = String(req.headers['x-order-email'] ?? '').toLowerCase().trim();
 
-    // Either the signed-in owner of the order, staff, or someone who can quote
-    // the email on the order (used by the guest confirmation page).
-    const allowed =
-      (session && (row.user_id === session.user.id || ['admin', 'support'].includes(session.user.role))) ||
-      (email && email === row.email);
-
-    if (!allowed) return fail(res, 403, 'You cannot view this order.');
+    // BOLA fix: centralised constant-time ownership check — a null user_id can
+    // no longer match a null session id, and a blank email never passes.
+    if (!canAccessOrder(row, session, email)) {
+      audit('order.access_denied', {
+        actor: session?.user?.email ?? email ?? null,
+        ip,
+        detail: { orderId: row.id },
+      });
+      return fail(res, 403, 'You cannot view this order.');
+    }
     return send(res, 200, { order });
   }
 

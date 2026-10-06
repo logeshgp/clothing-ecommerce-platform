@@ -1,4 +1,4 @@
-import { randomUUID } from 'node:crypto';
+import { randomUUID, timingSafeEqual } from 'node:crypto';
 import { db, now, audit } from '../db.js';
 import { config } from '../config.js';
 import { clean, rateLimit, requireRole, clientIp } from '../security.js';
@@ -15,6 +15,28 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
 const KINDS = ['query', 'complaint', 'return', 'sizing', 'order'];
 const STATUSES = ['open', 'pending', 'resolved', 'closed'];
 const PRIORITIES = ['low', 'normal', 'high'];
+
+/** Constant-time compare; an empty claimed value never matches. */
+function sameValue(a, b) {
+  const left = Buffer.from(String(a ?? '').toLowerCase());
+  const right = Buffer.from(String(b ?? '').toLowerCase());
+  if (left.length === 0 || left.length !== right.length) return false;
+  return timingSafeEqual(left, right);
+}
+
+/**
+ * Who may read or post to a thread: staff, the signed-in owner, or someone who
+ * can quote the exact email recorded on the thread.
+ */
+function canAccessThread(row, session, claimedEmail) {
+  if (session) {
+    if (['admin', 'support'].includes(session.user.role)) return true;
+    if (row.user_id && row.user_id === session.user.id) return true;
+    if (sameValue(session.user.email, row.email)) return true;
+  }
+  // BOLA fix: constant-time match, and a missing/blank email can never pass
+  return sameValue(claimedEmail, row.email);
+}
 
 function threadWithMessages(thread) {
   const messages = db
@@ -102,14 +124,13 @@ export async function handleSupport(req, res, pathname, session) {
     const row = db.prepare('SELECT * FROM support_threads WHERE id = ?').get(threadParams.id);
     if (!row) return fail(res, 404, 'Conversation not found.');
 
-    const email = String(req.headers['x-support-email'] ?? '').toLowerCase();
-    const isStaff = session && ['admin', 'support'].includes(session.user.role);
-    const isOwner =
-      (session && row.user_id === session.user.id) ||
-      (session && session.user.email === row.email) ||
-      (email && email === row.email);
+    const email = String(req.headers['x-support-email'] ?? '').toLowerCase().trim();
 
-    if (!isStaff && !isOwner) return fail(res, 403, 'You cannot view this conversation.');
+    // BOLA fix: centralised ownership check — a null user_id no longer matches
+    // a null session id, and the email comparison is constant time.
+    if (!canAccessThread(row, session, email)) {
+      return fail(res, 403, 'You cannot view this conversation.');
+    }
     return send(res, 200, { thread: threadWithMessages(row) });
   }
 
@@ -117,6 +138,11 @@ export async function handleSupport(req, res, pathname, session) {
 
   const replyParams = match('/api/support/threads/:id/messages', pathname);
   if (replyParams && req.method === 'POST') {
+    // Rate limit fix: replies were unthrottled, allowing unbounded message
+    // insertion and ownership guessing from a single client.
+    const replyLimit = rateLimit(`support-reply:${ip}`, config.rateLimits.write);
+    if (!replyLimit.ok) return fail(res, 429, 'Too many messages. Please wait a moment.');
+
     const row = db.prepare('SELECT * FROM support_threads WHERE id = ?').get(replyParams.id);
     if (!row) return fail(res, 404, 'Conversation not found.');
 
@@ -125,10 +151,12 @@ export async function handleSupport(req, res, pathname, session) {
     if (message.length < 2) return fail(res, 400, 'Write a message first.');
 
     const isStaff = session && ['admin', 'support'].includes(session.user.role);
-    const email = String(body.email ?? session?.user?.email ?? '').toLowerCase();
-    const isOwner = (session && row.user_id === session.user.id) || email === row.email;
+    const email = String(body.email ?? session?.user?.email ?? '').toLowerCase().trim();
 
-    if (!isStaff && !isOwner) return fail(res, 403, 'You cannot reply to this conversation.');
+    // BOLA fix: shared constant-time ownership check instead of a loose ===
+    if (!canAccessThread(row, session, email)) {
+      return fail(res, 403, 'You cannot reply to this conversation.');
+    }
 
     db.prepare(
       'INSERT INTO support_messages (id, thread_id, author_role, author_name, body, created_at) VALUES (?, ?, ?, ?, ?, ?)',

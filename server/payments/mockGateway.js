@@ -1,4 +1,5 @@
 import { randomUUID } from 'node:crypto';
+import { config } from '../config.js';
 import { PaymentGateway, toMinorUnits } from './gateway.js';
 
 /**
@@ -42,6 +43,15 @@ export class MockGateway extends PaymentGateway {
   }
 
   async confirm(payload) {
+    // Payment bypass fix: this gateway authorises locally with no bank in the
+    // loop, so it must never settle an order in a production deployment.
+    if (config.isProduction) {
+      throw Object.assign(
+        new Error('The test payment gateway cannot be used in production.'),
+        { status: 503 },
+      );
+    }
+
     const digits = String(payload.cardNumber || '').replace(/\D/g, '');
 
     if (payload.method === 'cod') {

@@ -94,23 +94,35 @@ export function destroyUserSessions(userId) {
 export function parseCookies(req) {
   const header = req.headers.cookie;
   if (!header) return {};
-  return Object.fromEntries(
-    header.split(';').map((part) => {
-      const index = part.indexOf('=');
-      const key = part.slice(0, index).trim();
-      const value = decodeURIComponent(part.slice(index + 1).trim());
-      return [key, value];
-    }),
-  );
+
+  const jar = {};
+  for (const part of header.split(';')) {
+    const index = part.indexOf('=');
+    // A pair with no '=' previously produced a bogus key/value.
+    if (index <= 0) continue;
+
+    const key = part.slice(0, index).trim();
+    const raw = part.slice(index + 1).trim();
+    if (!key || key in jar) continue; // first value wins — no cookie shadowing
+
+    try {
+      // DoS fix: a malformed percent-escape threw URIError and 500'd the request
+      jar[key] = decodeURIComponent(raw);
+    } catch {
+      jar[key] = raw;
+    }
+  }
+  return jar;
 }
 
 export function setCookie(res, name, value, { maxAgeMs, httpOnly = true } = {}) {
+  // The storefront and admin are static on GitHub Pages while the API is
+  // hosted separately. Secure production cookies need cross-site credentials;
+  // API origin checks and the CSRF token protect state-changing requests.
+  // `None` is only honoured alongside `Secure`, so never emit it otherwise.
   const parts = [
     `${name}=${encodeURIComponent(value)}`,
     'Path=/',
-    // The storefront and admin are static on GitHub Pages while the API is
-    // hosted separately. Secure production cookies need cross-site credentials;
-    // API origin checks and the CSRF token protect state-changing requests.
     `SameSite=${config.session.secure ? 'None' : 'Lax'}`,
   ];
   if (httpOnly) parts.push('HttpOnly');
@@ -147,7 +159,13 @@ export function applySecurityHeaders(res) {
   res.setHeader('X-Frame-Options', 'DENY');
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
-  res.setHeader('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
+  res.setHeader('Permissions-Policy', 'geolocation=(), microphone=(), camera=(), payment=()');
+  // Header fix: the API only ever returns JSON or images, so nothing needs to
+  // execute — a restrictive CSP neutralises any content-sniffing XSS attempt.
+  res.setHeader(
+    'Content-Security-Policy',
+    "default-src 'none'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'none'; form-action 'none'",
+  );
   if (config.session.secure) {
     res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
   }
@@ -179,8 +197,13 @@ setInterval(() => {
 }, 60_000).unref?.();
 
 export function clientIp(req) {
-  const forwarded = req.headers['x-forwarded-for'];
-  if (forwarded) return String(forwarded).split(',')[0].trim();
+  // Rate-limit bypass fix: `X-Forwarded-For` is attacker-controlled unless a
+  // trusted reverse proxy sets it. Honouring it unconditionally let a single
+  // client rotate the header and defeat every per-IP limit.
+  if (config.trustProxy) {
+    const forwarded = req.headers['x-forwarded-for'];
+    if (forwarded) return String(forwarded).split(',')[0].trim();
+  }
   return req.socket?.remoteAddress ?? 'unknown';
 }
 
@@ -214,9 +237,29 @@ export function requireRole(session, roles) {
 /** Double-submit CSRF: the header must match the session's token. */
 export function verifyCsrf(req, session) {
   if (['GET', 'HEAD', 'OPTIONS'].includes(req.method)) return true;
-  if (!session) return true; // unauthenticated POSTs are rate-limited separately
+
+  if (!session) {
+    // CSRF fix: unauthenticated writes (login, guest checkout, support) carry
+    // no token, so require an allowlisted Origin instead — a request forged by
+    // another site always carries that site's Origin header.
+    const origin = req.headers.origin;
+    if (origin) return Boolean(resolveOrigin(origin));
+
+    // With no Origin, fall back to Fetch Metadata. Browsers always send
+    // Sec-Fetch-Site; non-browser clients (curl, mobile apps) send neither.
+    const fetchSite = req.headers['sec-fetch-site'];
+    if (fetchSite && !['same-origin', 'none'].includes(String(fetchSite))) return false;
+    return true;
+  }
+
   const header = req.headers['x-csrf-token'];
-  return Boolean(header) && header === session.csrf;
+  if (!header || typeof header !== 'string') return false;
+
+  // Timing fix: constant-time compare so the token cannot be recovered byte by byte.
+  const provided = Buffer.from(header);
+  const expected = Buffer.from(session.csrf);
+  if (provided.length !== expected.length) return false;
+  return timingSafeEqual(provided, expected);
 }
 
 /** Strips angle brackets and control characters from user-supplied strings. */
